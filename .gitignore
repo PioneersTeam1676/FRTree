@@ -1,5 +1,8 @@
 node_modules
 
+
+src/lib/db/db.json.js
+
 # Output
 .output
 .vercel
