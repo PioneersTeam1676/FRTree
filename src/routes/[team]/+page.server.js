@@ -6,7 +6,7 @@ export async function load( { params }) {
 
     try {
         let results = await connection
-            .query(`SELECT url FROM frclink_links WHERE team_num = ${params.team}`)
+            .query(`SELECT url, description, icon FROM frclink_links WHERE team_num = ${params.team}`)
             .then(([rows, fields]) => {
                 console.log(rows);
                 return rows;
