@@ -8,10 +8,10 @@
         <div class="button-divs">
             <a href="https://www.team1676.com" target="_blank">
                 <button class="tree-buttons" id="redirectWebsite">
-
+ 
                     <div class="container">
                         <div class="grid1">
-                            <img class="button-logo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnewshour-classroom-tc.digi-producers.pbs.org%2Fuploads%2Fimages%2FJimmyCarter-1024x683.width-1024.jpg&f=1&nofb=1&ipt=95f057b39b5ca5108705e17d9555f4138ac49906bbfe645835f0e750ba873a1f&ipo=images" alt="button logo">
+                            <img class="button-logo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.interstellarrift.com%2Fwiki%2Fimages%2Fd%2Fd8%2FYoutube-logo-png-photo-0.png&f=1&nofb=1&ipt=95ae68517f2ac8b9f7450a5c365c9547719de70e10fd506bc165262678ef77c9&ipo=images" alt="button logo">
                         </div>
                         <div class="grid2">
                             <p class="tree-header">Former POTUS</p>
@@ -133,16 +133,16 @@
 }
 
 .button-divs {
-    width: 70%;
-    height:80px;
+    width: 50vw;
+    height:8vh;
     margin: auto;
-    margin-top: 40px;
-    margin-bottom: 60px;
+    margin-top: 6vh;
+    margin-bottom: 10vh;
     border-radius: 10px; 
 }
 
 .bg-info {
-    margin-top: 10px;
+    margin-top: 1vh;
     color: white;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }

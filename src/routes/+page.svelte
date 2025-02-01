@@ -16,6 +16,10 @@
 <button>View Profiles</button>
 </div>
 <style>
+    
+:global(html) {color: #3E7B27}
+:global(body) {margin:0px; background:#85A947;}
+
 .main-content {
     flex: 1; /* Take up remaining space */
     display: flex;

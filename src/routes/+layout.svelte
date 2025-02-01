@@ -3,12 +3,12 @@
 </script>
 
 <div class="header">
-    <img class="logo-img" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapers.com%2Fimages%2Ffeatured%2Fq7habo5f4c57a62u.jpg&f=1&nofb=1&ipt=dd5a187cee26f21b7e21eca11444e22cc215d1cf851e013a6b625fa1afc51e95&ipo=images" alt="logo">
+    <img class="logo-img" src="src/LinkTreeLogo-02.png" alt="logo">
     <button class="gallery-btn">Gallery</button>
     <div class="button-container">
         <button class="btn">Sign Up</button>
         <button class="btn">Sign In</button>
-        <img class="header-pfp" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fc4%2F91%2Fba%2Fc491ba9b7f40f36408ffa02cd973610c.gif&f=1&nofb=1&ipt=3542bb224f610a67f3aeedf829177472cd3e618435024aa08e77b1f3d99784ef&ipo=images" alt="profile pic">
+        <img class="header-pfp" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="profile pic">
     </div>
 </div>
 
