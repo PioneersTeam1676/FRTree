@@ -134,11 +134,17 @@
 
 .button-divs {
     width: 50vw;
-    height:8vh;
+    height: 100%;
     margin: auto;
-    margin-top: 6vh;
-    margin-bottom: 10vh;
+    margin-top: 30px;
+    margin-bottom: 30px;
     border-radius: 10px; 
+}
+
+@media (max-width: 800px) {
+  .button-divs {
+    width: 80vw;
+  }
 }
 
 .bg-info {
