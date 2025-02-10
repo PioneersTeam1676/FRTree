@@ -1,8 +1,16 @@
 <script>
     export let data;
-    console.log(data);
+    import { onMount } from 'svelte';
 
-    // console.log(data.data[0].url);
+    onMount(async () => {
+        
+        // console.log(data);
+        document.documentElement.style.setProperty('--primary-col', data.data.info[0].primary_col);
+        document.documentElement.style.setProperty('--secondary-col', data.data.info[0].secondary_col);
+    
+    });
+
+    
 </script>
 
 {#if data.data.length <= 0}
@@ -11,24 +19,25 @@
 
 <div class="main">
     <div class="pfp-div">
-        <img class="pfp" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnewshour-classroom-tc.digi-producers.pbs.org%2Fuploads%2Fimages%2FJimmyCarter-1024x683.width-1024.jpg&f=1&nofb=1&ipt=95f057b39b5ca5108705e17d9555f4138ac49906bbfe645835f0e750ba873a1f&ipo=images" alt="pfp">
-        <p class="description"> hi i am jimmy carter, a former US president</p>
+        <h1>Team {data.data.info[0].team_num}</h1>
+        <img class="pfp" src="{data.data.info[0].pfp}" alt="pfp">
+        <p class="description"> {data.data.info[0].description}</p>
     </div>
 
     <div class="all-links">
 
-        {#each data.data as url}
+        {#each data.data.links as link}
             <div class="button-divs">
-                <a href="{url.url}" target="_blank">
+                <a href="{link.url}" target="_blank">
                     <button class="tree-buttons" id="redirectWebsite">
     
                         <div class="container">
                             <div class="grid1">
-                                <img class="button-logo" src="{url.icon}" alt="button logo">
+                                <img class="button-logo" src="{link.icon}" alt="button logo">
                             </div>
                             <div class="grid2">
-                                <p class="tree-header">{url.url}</p>
-                                <p class="bg-info">{url.description}</p>
+                                <p class="tree-header">{link.title}</p>
+                                <p class="bg-info">{link.description}</p>
                             </div>
                         </div>
                     </button>
@@ -44,97 +53,102 @@
 
 
 <style>
+    :root {
+        --primary-col: #3E7B27;
+        --secondary-col: #85A947;
+    }
     
-    :global(html) {color: #3E7B27}
-    :global(body) {margin:0px; background:#85A947;}
+    :global(html) {color: var(--primary-col);}
+    :global(body) {margin:0px; background: var(--secondary-col);}
     
-.main {
-    display: grid;
-}
 
-.description {
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    color: white;
+    .main {
+        display: grid;
+    }
 
-}
+    .description {
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        color: white;
 
-.all-links {
-    align-self: center;
-    justify-self: center;
-}
+    }
 
-.button-divs {
-    width: 50vw;
-    height: 100%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: 10px; 
-}
+    .all-links {
+        align-self: center;
+        justify-self: center;
+    }
 
-@media (max-width: 800px) {
-  .button-divs {
-    width: 80vw;
-  }
-}
+    .button-divs {
+        width: 50vw;
+        height: 100%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 10px; 
+    }
 
-.bg-info {
-    margin-top: 1vh;
-    color: white;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-}
+    @media (max-width: 800px) {
+    .button-divs {
+        width: 80vw;
+    }
+    }
 
-.pfp-div {
-    margin-top: 10vh;
-    text-align: center;
-    
-}
+    .bg-info {
+        margin-top: 1vh;
+        color: white;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+    }
 
-.pfp {
-    width: 200px;
-    height: 200px;
-    border-radius: 10px;
-}
+    .pfp-div {
+        margin-top: 10vh;
+        text-align: center;
+        
+    }
 
-.tree-buttons {
-    background: #3E7B27;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease; /* Smooth transition for scaling */
-    box-shadow: 0 0 5px 0px black;
+    .pfp {
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+    }
 
-
-}
-
-.tree-buttons:hover {
-    transform: scale(1.01); /* Enlarge the button on hover */
-}
-
-.tree-buttons:active {
-    transform: scale(0.99); /* Slightly shrink the button */
-}
+    .tree-buttons {
+        background: var(--primary-col);
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease; /* Smooth transition for scaling */
+        box-shadow: 0 0 5px 0px black;
 
 
-.tree-header {
-    color: white;
-    font-family: 'Helvetica', 'Arial', sans-serif;
-    font-weight: bold;
-}
+    }
 
-.button-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
-}
+    .tree-buttons:hover {
+        transform: scale(1.01); /* Enlarge the button on hover */
+    }
 
-.container {
-    display: grid;
-    grid-template-columns: .2fr 1fr; 
-}
+    .tree-buttons:active {
+        transform: scale(0.99); /* Slightly shrink the button */
+    }
 
-.grid1 {
-    margin-top: 10px;
-    margin-bottom: 6px;
-}
+
+    .tree-header {
+        color: white;
+        font-family: 'Helvetica', 'Arial', sans-serif;
+        font-weight: bold;
+    }
+
+    .button-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: .2fr 1fr; 
+    }
+
+    .grid1 {
+        margin-top: 10px;
+        margin-bottom: 6px;
+    }
 </style>
