@@ -15,7 +15,7 @@
                         </div>
                         <div class="grid2">
                             <p class="tree-header">Former POTUS</p>
-                            <p class="bg-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="bg-info">Lorem ipsum dolor sit ame.</p>
                         </div>
                     </div>
                 </button>
@@ -31,7 +31,7 @@
                         </div>
                         <div class="grid2">
                             <p class="tree-header">Former POTUS</p>
-                            <p class="bg-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="bg-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                         </div>
                     </div>
                 </button>
@@ -169,6 +169,7 @@
     background: #3E7B27;
     border-radius: 10px;
     border: none;
+    width: 50vw;
     cursor: pointer;
     transition: transform 0.2s ease; /* Smooth transition for scaling */
     box-shadow: 0 0 5px 0px black;
@@ -203,7 +204,10 @@
 }
 
 .grid1 {
-    margin-top: 10px;
-    margin-bottom: 6px;
+    display: flex;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    justify-content: center; /* Center horizontally */
+    align-items: center;  
 }
 </style>

@@ -9,6 +9,11 @@
 <div class="header">
     <img class="logo-img" src="src/LinkTreeLogo-02.png" alt="logo" />
     <div class="header-title">FRTree</div>
+    <div class="search-bar">
+        <input placeholder="Enter text" class="input-field" type="text">
+        <label for="input-field" class="input-label">Enter text</label>
+        <span class="input-highlight"></span>
+      </div>
     <div class="button-container">
         <button class="btn">Gallery</button>
         <button class="btn">Sign Up</button>
@@ -103,4 +108,54 @@
     :global(p, span) {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
+/* Input container */
+.search-bar {
+    position: relative;
+    margin: 20px;
+}
+
+/* Input field */
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    background-color: transparent;
+}
+
+/* Input label */
+.input-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    color: transparent;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Input highlight */
+.input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: #3E7B27;
+    transition: all 0.3s ease;
+}
+
+/* Input field:focus styles */
+.input-field:focus + .input-label {
+    top: -14px;
+    font-size: 14px;
+    color: #3E7B27;
+}
+
+.input-field:focus + .input-label + .input-highlight {
+    width: 112%;  
+}
 </style>
