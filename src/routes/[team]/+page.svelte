@@ -124,7 +124,7 @@
     .tree-buttons:hover {
         transform: scale(1.01); /* Enlarge the button on hover */
     }
-
+  
     .tree-buttons:active {
         transform: scale(0.99); /* Slightly shrink the button */
     }
@@ -146,9 +146,5 @@
         display: grid;
         grid-template-columns: .2fr 1fr; 
     }
-
-    .grid1 {
-        margin-top: 10px;
-        margin-bottom: 6px;
-    }
+  
 </style>
