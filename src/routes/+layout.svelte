@@ -1,4 +1,5 @@
 <script>
+    let {children} = $props();
     import { onMount } from "svelte";
     let { children } = $props();
     onMount(() => {
@@ -26,11 +27,73 @@
     </div>
 </div>
 
-<div class="children-loc">
-    {@render children()}
-</div>
+{@render children()} 
 
 <style>
+    .header {
+    display: flex;
+    align-items: center;    /* Center vertically */
+    width: 100vw;
+    height: 10vh;
+    background-color: rgb(216, 196, 171);
+}
+
+.logo-img{
+    margin-left: .7vw;
+    height: 60px;
+}
+
+.button-container {
+    display: flex; /* Use flexbox for the button container */
+    align-items: center; /* Center buttons vertically */
+    margin-left: auto; /* Push the button container to the right */
+}
+
+
+.btn {
+    margin-right: 1vw; /* Space between buttons */
+    padding: 10px 15px; /* Button padding */
+    background-color: #fff; /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.btn:hover {
+    background-color: #3E7B27; /* Change background color on hover */
+    color: white; /* Change text color on hover (optional) */
+}
+
+.btn:active {
+    background-color: #234716; /* Change background color on click */
+}
+
+.header-pfp {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 1vw;
+}
+
+.gallery-btn {
+    margin-left: 1vw; /* Space between buttons */
+    padding: 10px 15px; /* Button padding */
+    background-color: #fff; /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.gallery-btn:hover{
+    background-color: #3E7B27; /* Change background color on hover */
+    color: white; /* Change text color on hover (optional) */
+}
+
+.gallery-btn:active{
+    background-color: #234716; /* Change background color on click */
+}
 
     :root {
         --color-0: #b7c685;
