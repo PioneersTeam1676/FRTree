@@ -1,4 +1,5 @@
 <script>
+    let {children} = $props();
     import { onMount } from "svelte";
     onMount(() => {
         document.title = "FRTree";
