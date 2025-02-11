@@ -1,61 +1,27 @@
+<script>
+
+    export let data;
+
+    console.log(data);
+
+
+</script>
+
 <div class="main-container">
     <div class="container">
+
+    <!-- loop through all data.info items  -->
+    {#each data.data.info as team}
+
         <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
+            <img src="{team.pfp}" alt="Team Logo">
             <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
+                <p class="team-number">Team {team.team_num}</p>
+                <p class="team-name">{team.description}</p>
             </div>    
         </div>
-        <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
-            <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
-            </div>    
-        </div>
-        <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
-            <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
-            </div>    
-        </div>
-        <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
-            <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
-            </div>    
-        </div>
-        <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
-            <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
-            </div>    
-        </div>
-        <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
-            <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
-            </div>    
-        </div>
-        <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
-            <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
-            </div>    
-        </div>
-        <div class="item">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images" alt="Team Logo">
-            <div class="text-grid">
-                <p class="team-number">Team 1676</p>
-                <p class="team-name">Pi-oneers</p>
-            </div>    
-        </div>
+
+    {/each}
 
     </div>
 </div>
