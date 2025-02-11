@@ -14,7 +14,7 @@
             <div style="position: absolute; top: 0; left: 0; z-index: -1; transform: translate(75px, 20px); filter: blur(1px)">
               <Tree teamId={1676} />
             </div>
-            <div style="position: absolute; top: 0; left: 0; z-index: -2; transform: translate(150px, 40px); filter: blur(3px)">
+            <div style="position: absolute; top: 0; left: 0; z-index: -2; transform: translate(150px, 40px); filter: blur(2px)">
               <Tree teamId={1676} />
             </div>
           </div>
