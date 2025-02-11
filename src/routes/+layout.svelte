@@ -1,5 +1,5 @@
 <script>
-    let {children} = $props();
+    let { children } = $props();
     import { onMount } from "svelte";
     onMount(() => {
         document.title = "FRTree";
@@ -7,98 +7,109 @@
 </script>
 
 <div class="header">
-    <a href="/"><img class="logo-img" src="src/LinkTreeLogo-02.png" alt="logo"/></a>
+    <a href="/"
+        ><img class="logo-img" src="src/LinkTreeLogo-02.png" alt="logo" /></a
+    >
     <a href="/"><div class="header-title">FRTree</div></a>
     <div class="search-bar">
-        <input placeholder="Enter text" class="input-field" type="text">
-        <label for="input-field" class="input-label">Enter text</label>
+        <input placeholder="Enter text" class="input-field" type="text" />
+        <label for="input-field" class="input-label">Search for a team</label>
         <span class="input-highlight"></span>
-      </div>
+    </div>
     <div class="button-container">
         <a href="/gallery"><button class="btn">Gallery</button></a>
         <button class="btn">Sign Up</button>
         <button class="btn">Sign In</button>
-        <a href="https://team1676.com"><img
-            class="header-pfp"
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images"
-            alt="profile pic"
-        /></a>
+        <a href="https://team1676.com"
+            ><img
+                class="header-pfp"
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAGF-l7-mM82_wzV3-rb20GXvq8nDm-8dFzEYPBY9%3Ds900-c-k-c0xffffffff-no-rj-mo&f=1&nofb=1&ipt=258c65eef72ceda28dcc447625cfa9c935e781108d34fd1d1affe361e8c6aa90&ipo=images"
+                alt="profile pic"
+            /></a
+        >
     </div>
 </div>
 
-{@render children()} 
+<div style="width: 100%; height: 90%; max-height: 90%">
+    {@render children()}
+</div>
 
 <style>
+
+    :global(html), :global(body) {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
     .header {
-    display: flex;
-    align-items: center;    /* Center vertically */
-    width: 100vw;
-    height: 10vh;
-    background-color: rgb(216, 196, 171);
-}
+        display: flex;
+        align-items: center; /* Center vertically */
+        width: 100vw;
+        height: 10%;
+        background-color: rgb(216, 196, 171);
+    }
 
-.logo-img{
-    margin-left: .7vw;
-    height: 60px;
-}
+    .logo-img {
+        margin-left: 0.7vw;
+        height: 60px;
+    }
 
-a {
-    color: black;
-/* make it not underlined */
-    text-decoration: none;
-}
+    a {
+        color: black;
+        /* make it not underlined */
+        text-decoration: none;
+    }
 
-.button-container {
-    display: flex; /* Use flexbox for the button container */
-    align-items: center; /* Center buttons vertically */
-    margin-left: auto; /* Push the button container to the right */
-}
+    .button-container {
+        display: flex; /* Use flexbox for the button container */
+        align-items: center; /* Center buttons vertically */
+        margin-left: auto; /* Push the button container to the right */
+    }
 
+    .btn {
+        margin-right: 1vw; /* Space between buttons */
+        padding: 10px 15px; /* Button padding */
+        background-color: var(--color-0); /* Button background color */
+        border: none; /* Remove default border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
 
-.btn {
-    margin-right: 1vw; /* Space between buttons */
-    padding: 10px 15px; /* Button padding */
-    background-color: #fff; /* Button background color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-}
+    .btn:hover {
+        background-color: var(--color-1); /* Change background color on hover */
+    }
 
-.btn:hover {
-    background-color: #3E7B27; /* Change background color on hover */
-    color: white; /* Change text color on hover (optional) */
-}
+    .btn:active {
+        background-color: var(--color-2); /* Change background color on click */
+    }
 
-.btn:active {
-    background-color: #234716; /* Change background color on click */
-}
+    .header-pfp {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        margin-right: 1vw;
+    }
 
-.header-pfp {
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    margin-right: 1vw;
-}
+    .gallery-btn {
+        margin-left: 1vw; /* Space between buttons */
+        padding: 10px 15px; /* Button padding */
+        background-color: #fff; /* Button background color */
+        border: none; /* Remove default border */
+        border-radius: 5px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+    }
 
-.gallery-btn {
-    margin-left: 1vw; /* Space between buttons */
-    padding: 10px 15px; /* Button padding */
-    background-color: #fff; /* Button background color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-}
+    .gallery-btn:hover {
+        background-color: #3e7b27; /* Change background color on hover */
+        color: white; /* Change text color on hover (optional) */
+    }
 
-.gallery-btn:hover{
-    background-color: #3E7B27; /* Change background color on hover */
-    color: white; /* Change text color on hover (optional) */
-}
-
-.gallery-btn:active{
-    background-color: #234716; /* Change background color on click */
-}
+    .gallery-btn:active {
+        background-color: #234716; /* Change background color on click */
+    }
 
     :root {
         --color-0: #b7c685;
@@ -158,8 +169,9 @@ a {
         color: var(--color-b);
     }
 
-    .btn:hover, .btn:active {
-        background-color: var(--color-2) /* Change background color on hover */
+    .btn:hover,
+    .btn:active {
+        background-color: var(--color-2); /* Change background color on hover */
     }
 
     .header-pfp {
@@ -169,61 +181,62 @@ a {
         margin-right: 1vw;
     }
 
-    :global(h1, h2, h3, h4, h5, h6) {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    :global(h1, h2, h3, h4, h5, h6, p, span) {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    :global(p, span) {
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* :global(p, span) {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+            sans-serif;
+    } */
+    /* Input container */
+    .search-bar {
+        position: relative;
+        margin: 20px;
     }
-/* Input container */
-.search-bar {
-    position: relative;
-    margin: 20px;
-}
 
-/* Input field */
-.input-field {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    outline: none;
-    background-color: transparent;
-}
+    /* Input field */
+    .input-field {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-bottom: 2px solid #ccc;
+        outline: none;
+        background-color: transparent;
+    }
 
-/* Input label */
-.input-label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 16px;
-    color: transparent;
-    pointer-events: none;
-    transition: all 0.3s ease;
-}
+    /* Input label */
+    .input-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 16px;
+        color: transparent;
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
 
-/* Input highlight */
-.input-highlight {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2px;
-    width: 0;
-    background-color: #3E7B27;
-    transition: all 0.3s ease;
-}
+    /* Input highlight */
+    .input-highlight {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background-color: #3e7b27;
+        transition: all 0.3s ease;
+    }
 
-/* Input field:focus styles */
-.input-field:focus + .input-label {
-    top: -14px;
-    font-size: 14px;
-    color: #3E7B27;
-}
+    /* Input field:focus styles */
+    .input-field:focus + .input-label {
+        top: -14px;
+        font-size: 14px;
+        color: #3e7b27;
+    }
 
-.input-field:focus + .input-label + .input-highlight {
-    width: 112%;  
-}
+    .input-field:focus + .input-label + .input-highlight {
+        width: 112%;
+    }
 </style>
