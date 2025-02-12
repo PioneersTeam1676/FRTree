@@ -20,12 +20,28 @@
 {@render children()}
 
 <style>
-    .header {
+
+/* :root {
+    --color1: #123524;
+    --color2: #3E7B27;
+    --color3: #85A947;
+    --color4: #EFE3C2;
+} */
+
+:root {
+    --color1: #007acc;
+    --color2: #3e3e42;
+    --color3: #2d2d30;
+    --color4: #252526;
+    --color5: #1e1e1e;
+}
+
+.header {
     display: flex;
     align-items: center;    /* Center vertically */
     width: 100vw;
     height: 10vh;
-    background-color: rgb(216, 196, 171);
+    background-color: var(--color5);
 }
 
 .logo-img{
@@ -43,20 +59,21 @@
 .btn {
     margin-right: 1vw; /* Space between buttons */
     padding: 10px 15px; /* Button padding */
-    background-color: #fff; /* Button background color */
+    background-color: var(--color4); /* Button background color */
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    transition: 0.3s ease; /* Smooth transition for background color */
+    color: var(--color1);
 }
 
 .btn:hover {
-    background-color: #3E7B27; /* Change background color on hover */
-    color: white; /* Change text color on hover (optional) */
+    background-color: var(--color3); /* Change background color on hover */
+    color: var(--color1); /* Change text color on hover (optional) */
 }
 
 .btn:active {
-    background-color: #234716; /* Change background color on click */
+    background-color: var(--color2); /* Change background color on hover */
 }
 
 .header-pfp {
@@ -69,20 +86,21 @@
 .gallery-btn {
     margin-left: 1vw; /* Space between buttons */
     padding: 10px 15px; /* Button padding */
-    background-color: #fff; /* Button background color */
+    background-color: var(--color4); /* Button background color */
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    transition: 0.3s ease; /* Smooth transition for background color */
+    color: var(--color1);
 }
 
 .gallery-btn:hover{
-    background-color: #3E7B27; /* Change background color on hover */
-    color: white; /* Change text color on hover (optional) */
+    background-color: var(--color3); /* Change background color on hover */
+    color: var(--color1); /* Change text color on hover (optional) */
 }
 
 .gallery-btn:active{
-    background-color: #234716; /* Change background color on click */
+    background-color: var(--color2); /* Change background color on click */
 }
 
 /* Input container */
@@ -98,9 +116,10 @@
     padding: 10px;
     font-size: 16px;
     border: none;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid var(--color1);
     outline: none;
     background-color: transparent;
+    color: white;
 }
 
 /* Input label */
@@ -121,7 +140,7 @@
     left: 0;
     height: 2px;
     width: 0;
-    background-color: #3E7B27;
+    background-color: var(--color1);
     transition: all 0.3s ease;
 }
 
@@ -129,10 +148,11 @@
 .input-field:focus + .input-label {
     top: -14px;
     font-size: 14px;
-    color: #3E7B27;
+    color: var(--color1);
 }
 
 .input-field:focus + .input-label + .input-highlight {
-    width: 112%;  
+    width: 110%;  
+    /* background-color: var(--color2) */
 }
 </style>
