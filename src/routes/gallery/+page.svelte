@@ -29,8 +29,16 @@
 
 
 <style>
-    :global(html) {color: #3E7B27}
-    :global(body) {margin:0px; background:#85A947;}
+
+:root {
+    --color1: #007acc;
+    --color2: #3e3e42;
+    --color3: #2d2d30;
+    --color4: #252526;
+}
+
+    :global(html) {color: var(--color2)}
+    :global(body) {margin:0px; background: var(--color3);}
 
     .main-container {
         display: flex;
@@ -53,7 +61,7 @@
         align-items: center; /* Center vertically */
         width: calc(25% - 50px); /* 4 items per row with some margin */
         margin: 30px; /* Space between items */
-        background: #3E7B27;
+        background: var(--color2);
         border-radius: 5px;
         box-shadow: 0 0 5px 0px black;
         padding: 10px;

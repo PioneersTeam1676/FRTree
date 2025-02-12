@@ -36,6 +36,141 @@
 
 <style>
 
+/* :root {
+    --color1: #123524;
+    --color2: #3E7B27;
+    --color3: #85A947;
+    --color4: #EFE3C2;
+} */
+
+:root {
+    --color1: #007acc;
+    --color2: #3e3e42;
+    --color3: #2d2d30;
+    --color4: #252526;
+    --color5: #1e1e1e;
+}
+
+.header {
+    display: flex;
+    align-items: center;    /* Center vertically */
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--color5);
+}
+
+.logo-img{
+    margin-left: .7vw;
+    height: 60px;
+}
+
+.button-container {
+    display: flex; /* Use flexbox for the button container */
+    align-items: center; /* Center buttons vertically */
+    margin-left: auto; /* Push the button container to the right */
+}
+
+
+.btn {
+    margin-right: 1vw; /* Space between buttons */
+    padding: 10px 15px; /* Button padding */
+    background-color: var(--color4); /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: 0.3s ease; /* Smooth transition for background color */
+    color: var(--color1);
+}
+
+.btn:hover {
+    background-color: var(--color3); /* Change background color on hover */
+    color: var(--color1); /* Change text color on hover (optional) */
+}
+
+.btn:active {
+    background-color: var(--color2); /* Change background color on hover */
+}
+
+.header-pfp {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 1vw;
+}
+
+.gallery-btn {
+    margin-left: 1vw; /* Space between buttons */
+    padding: 10px 15px; /* Button padding */
+    background-color: var(--color4); /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: 0.3s ease; /* Smooth transition for background color */
+    color: var(--color1);
+}
+
+.gallery-btn:hover{
+    background-color: var(--color3); /* Change background color on hover */
+    color: var(--color1); /* Change text color on hover (optional) */
+}
+
+.gallery-btn:active{
+    background-color: var(--color2); /* Change background color on click */
+}
+
+/* Input container */
+.search-bar {
+    position: relative;
+    margin: 20px;
+}
+
+/* Input field */
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid var(--color1);
+    outline: none;
+    background-color: transparent;
+    color: white;
+}
+
+/* Input label */
+.input-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    color: transparent;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Input highlight */
+.input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--color1);
+    transition: all 0.3s ease;
+}
+
+/* Input field:focus styles */
+.input-field:focus + .input-label {
+    top: -14px;
+    font-size: 14px;
+    color: var(--color1);
+}
+
+.input-field:focus + .input-label + .input-highlight {
+    width: 110%;  
+    /* background-color: var(--color2) */
+}
+
     :global(html), :global(body) {
         margin: 0;
         width: 100%;
