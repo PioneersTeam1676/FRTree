@@ -113,9 +113,18 @@
 
 
 <style>
+
+:root {
+    --color1: #123524;
+    --color2: #3E7B27;
+    --color3: #85A947;
+    --color4: #EFE3C2;
+}
+
+
     
-    :global(html) {color: #3E7B27}
-    :global(body) {margin:0px; background:#85A947;}
+    :global(html) {color: var(--color2)}
+    :global(body) {margin:0px; background: var(--color3);}
     
 .main {
     display: grid;
@@ -166,7 +175,7 @@
 }
 
 .tree-buttons {
-    background: #3E7B27;
+    background: var(--color2);
     border-radius: 10px;
     border: none;
     width: 50vw;
