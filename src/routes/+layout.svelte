@@ -1,19 +1,30 @@
 <script>
     let { children } = $props();
+    import logo from "$lib/assets/LinkTreeLogo-02.png";
+    
+    
     import { onMount } from "svelte";
     onMount(() => {
         document.title = "FRTree";
     });
+    
+    function search(event) {
+        if (event.key === "Enter") {
+            console.log(event.target.value);
+            window.location.href = `/search/${event.target.value}`;
+        }
+    }
+
 </script>
 
 <div class="header">
     <a href="/"
-        ><img class="logo-img" src="src/LinkTreeLogo-02.png" alt="logo" /></a
+        ><img class="logo-img" src={logo} alt="logo" /></a
     >
     <a href="/"><div class="header-title font">FRTree</div></a>
     <div class="search-bar">
-        <input placeholder="Enter text" class="input-field font" type="text" />
-        <label for="input-field" class="input-label font">Search for a team</label>
+        <input onkeydown={search} placeholder="Enter text" class="input-field" type="text" />
+        <label for="input-field" class="input-label">Search for a team</label>
         <span class="input-highlight"></span>
     </div>
     <div class="button-container">
