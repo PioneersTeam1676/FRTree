@@ -10,16 +10,16 @@
     <a href="/"
         ><img class="logo-img" src="src/LinkTreeLogo-02.png" alt="logo" /></a
     >
-    <a href="/"><div class="header-title">FRTree</div></a>
+    <a href="/"><div class="header-title font">FRTree</div></a>
     <div class="search-bar">
-        <input placeholder="Enter text" class="input-field" type="text" />
-        <label for="input-field" class="input-label">Search for a team</label>
+        <input placeholder="Enter text" class="input-field font" type="text" />
+        <label for="input-field" class="input-label font">Search for a team</label>
         <span class="input-highlight"></span>
     </div>
     <div class="button-container">
-        <a href="/gallery"><button class="btn">Gallery</button></a>
-        <button class="btn">Sign Up</button>
-        <button class="btn">Sign In</button>
+        <a href="/gallery"><button class="btn font">Gallery</button></a>
+        <button class="btn font">Sign Up</button>
+        <button class="btn font">Sign In</button>
         <a href="https://team1676.com"
             ><img
                 class="header-pfp"
@@ -36,13 +36,6 @@
 
 <style>
 
-/* :root {
-    --color1: #123524;
-    --color2: #3E7B27;
-    --color3: #85A947;
-    --color4: #EFE3C2;
-} */
-
 :root {
     --color1: #007acc;
     --color2: #3e3e42;
@@ -50,6 +43,12 @@
     --color4: #252526;
     --color5: #1e1e1e;
 }
+
+/* Font */
+.font {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
+}
+
 
 .header {
     display: flex;
