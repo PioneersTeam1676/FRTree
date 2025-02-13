@@ -98,26 +98,6 @@
     margin-right: 1vw;
 }
 
-.gallery-btn {
-    margin-left: 1vw; /* Space between buttons */
-    padding: 10px 15px; /* Button padding */
-    background-color: var(--color4); /* Button background color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: 0.3s ease; /* Smooth transition for background color */
-    color: var(--color1);
-}
-
-.gallery-btn:hover{
-    background-color: var(--color3); /* Change background color on hover */
-    color: var(--color1); /* Change text color on hover (optional) */
-}
-
-.gallery-btn:active{
-    background-color: var(--color2); /* Change background color on click */
-}
-
 /* Input container */
 .search-bar {
     position: relative;
@@ -177,48 +157,11 @@
         height: 100%;
     }
 
-    .header {
-        display: flex;
-        align-items: center; /* Center vertically */
-        width: 100vw;
-        height: 10%;
-        background-color: rgb(216, 196, 171);
-    }
-
-    .logo-img {
-        margin-left: 0.7vw;
-        height: 60px;
-    }
-
     a {
         color: black;
-        /* make it not underlined */
         text-decoration: none;
     }
 
-    .button-container {
-        display: flex; /* Use flexbox for the button container */
-        align-items: center; /* Center buttons vertically */
-        margin-left: auto; /* Push the button container to the right */
-    }
-
-    .btn {
-        margin-right: 1vw; /* Space between buttons */
-        padding: 10px 15px; /* Button padding */
-        background-color: var(--color-0); /* Button background color */
-        border: none; /* Remove default border */
-        border-radius: 5px; /* Rounded corners */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background-color 0.3s ease; /* Smooth transition for background color */
-    }
-
-    .btn:hover {
-        background-color: var(--color-1); /* Change background color on hover */
-    }
-
-    .btn:active {
-        background-color: var(--color-2); /* Change background color on click */
-    }
 
     .header-pfp {
         height: 60px;
@@ -227,26 +170,7 @@
         margin-right: 1vw;
     }
 
-    .gallery-btn {
-        margin-left: 1vw; /* Space between buttons */
-        padding: 10px 15px; /* Button padding */
-        background-color: #fff; /* Button background color */
-        border: none; /* Remove default border */
-        border-radius: 5px; /* Rounded corners */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background-color 0.3s ease; /* Smooth transition for background color */
-    }
-
-    .gallery-btn:hover {
-        background-color: #3e7b27; /* Change background color on hover */
-        color: white; /* Change text color on hover (optional) */
-    }
-
-    .gallery-btn:active {
-        background-color: #234716; /* Change background color on click */
-    }
-
-    :root {
+    /* :root {
         --color-0: #b7c685;
         --color-1: #ccd5ae;
         --color-2: #e9edc9;
@@ -255,13 +179,8 @@
         --color-5: #d4a373;
         --color-b: #212121;
         --color-w: #ececec;
-    }
+    } */
 
-    :global(body) {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
 
     .children-loc {
         padding: 10px;
@@ -272,48 +191,7 @@
     .header-title {
         padding-left: 10px;
         font-size: 2em;
-    }
-
-    .header {
-        display: flex;
-        align-items: center; /* Center vertically */
-        width: 100vw;
-        height: 10vh;
-        background-color: var(--color-1);
-    }
-
-    .logo-img {
-        margin-left: 0.7vw;
-        height: 60px;
-    }
-
-    .button-container {
-        display: flex; /* Use flexbox for the button container */
-        align-items: center; /* Center buttons vertically */
-        margin-left: auto; /* Push the button container to the right */
-    }
-
-    .btn {
-        margin-right: 1vw; /* Space between buttons */
-        padding: 10px 15px; /* Button padding */
-        background-color: var(--color-3); /* Button background color */
-        border: none; /* Remove default border */
-        border-radius: 5px; /* Rounded corners */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background-color 0.3s ease; /* Smooth transition for background color */
-        color: var(--color-b);
-    }
-
-    .btn:hover,
-    .btn:active {
-        background-color: var(--color-2); /* Change background color on hover */
-    }
-
-    .header-pfp {
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        margin-right: 1vw;
+        color: var(--color1)
     }
 
     :global(h1, h2, h3, h4, h5, h6, p, span) {
@@ -324,54 +202,5 @@
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
             sans-serif;
     } */
-    /* Input container */
-    .search-bar {
-        position: relative;
-        margin: 20px;
-    }
 
-    /* Input field */
-    .input-field {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        border-bottom: 2px solid #ccc;
-        outline: none;
-        background-color: transparent;
-    }
-
-    /* Input label */
-    .input-label {
-        position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 16px;
-        color: transparent;
-        pointer-events: none;
-        transition: all 0.3s ease;
-    }
-
-    /* Input highlight */
-    .input-highlight {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        width: 0;
-        background-color: #3e7b27;
-        transition: all 0.3s ease;
-    }
-
-    /* Input field:focus styles */
-    .input-field:focus + .input-label {
-        top: -14px;
-        font-size: 14px;
-        color: #3e7b27;
-    }
-
-    .input-field:focus + .input-label + .input-highlight {
-        width: 112%;
-    }
 </style>
