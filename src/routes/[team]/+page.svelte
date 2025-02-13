@@ -3,11 +3,11 @@
     import { onMount } from 'svelte';
 
     onMount(async () => {
-        
-        // console.log(data);
-        document.documentElement.style.setProperty('--primary-col', data.data.info[0].primary_col);
-        document.documentElement.style.setProperty('--secondary-col', data.data.info[0].secondary_col);
-    
+        // Ensure data is defined before accessing its properties
+        if (data?.data?.info?.[0]) {
+            document.documentElement.style.setProperty('--primary-col', data.data.info[0].primary_col);
+            document.documentElement.style.setProperty('--secondary-col', data.data.info[0].secondary_col);
+        }
     });
 
     
