@@ -6,7 +6,6 @@
     }
 </script>
 
-<div class="container">
     <button type="button" class="item" onclick={() => goToTeam(team_num)} aria-label="Go to team {team_num}">
         <img src={pfp} alt="Team Logo" />
         <div class="text-grid">
@@ -14,16 +13,9 @@
             <p class="team-name">{description}</p>
         </div>
     </button>
-</div>
 
 <style>
-    .container {
-        display: flex;
-        justify-content: center; /* Center items horizontally */
-        flex-wrap: wrap;
-        width: 100%;
-        max-width: 100vw; /* Adjust as needed */
-    }
+    
 
     .item {
         display: flex;

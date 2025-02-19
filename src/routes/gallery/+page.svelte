@@ -13,9 +13,11 @@
 
 <div class="main-container">
     
-    {#each data.data.info as team}
-        <TeamGalleryEntry {...team} />
-    {/each}
+    <div class="container">
+        {#each data.data.info as team}
+            <TeamGalleryEntry {...team} />
+        {/each}
+    </div>
 
     <!-- <div class="container">
         <!-- loop through all data.info items  -->
@@ -48,6 +50,13 @@
         margin: 0px;
         background: var(--color3);
     } */
+
+    .container {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        flex-wrap: wrap;
+        width: 100%;
+    }
 
     .main-container {
         display: flex;

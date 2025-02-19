@@ -1,38 +1,17 @@
-# sv
+# FRTree
+This is the repository for the FRTree Apps project
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Nate testing
+Nate remember to test all the following things before committing:
+1. Home page loads
+2. Gallery page loads
+3. Search page loads
+4. Clicking a link works
+5. Team data loads
+6. Styling looks correct
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Currently known bugs
+* SQL INJECTION ATTACK routes/[team]/+page.server.js
+* Background doesn't change back from the custom colors after navigating away from a tree page
+    * Also background colors are all messed up
+* Search page doesn't work if nothing is entered

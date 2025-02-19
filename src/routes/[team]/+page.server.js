@@ -5,6 +5,7 @@ export async function load( { params }) {
     let connection = await mysqlConnection();
 
     try {
+
         // TODO: SQL INJECTION. SQL INJECTION. WARNING WARNING WARNING
         let links = await connection
             .query(`SELECT * FROM frclink_links WHERE team_num = ${params.team}`)
