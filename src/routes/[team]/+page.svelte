@@ -60,7 +60,6 @@
     
     :global(html) {color: var(--primary-col);}
     :global(body) {margin:0px; background: var(--secondary-col);}
-    
 
     .main {
         display: grid;

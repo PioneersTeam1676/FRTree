@@ -5,6 +5,7 @@
     // console.log(data);
 
     import { onMount } from "svelte";
+    import TeamGalleryEntry from "../../../TeamGalleryEntry.svelte";
 
     /**
      * Returns a normalized value representing the similarity between two strings.
@@ -99,11 +100,12 @@ Results:
 
 -->
 {#each newData as item}
-    <a href="/{item.team_num}">
+    <TeamGalleryEntry {...item} />
+    <!-- <a href="/{item.team_num}">
         <div class="search-result">
             <h1>{item.team_num}</h1>
         </div>
         <h6>{item.description}</h6>
-    </a>
+    </a> -->
 {/each}
 
