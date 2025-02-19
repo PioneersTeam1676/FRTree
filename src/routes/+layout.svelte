@@ -43,11 +43,19 @@
     </div>
 </div>
 
-<div style="width: 100%; height: 90%; max-height: 90%">
+<div class="children">
     {@render children()}
 </div>
 
 <style>
+
+    .children {
+        width: 100%;
+        height: 90%;
+        max-height: 90%;
+        background-color: var(--color3);
+    }
+
     /* Font */
     .font {
         font-family:

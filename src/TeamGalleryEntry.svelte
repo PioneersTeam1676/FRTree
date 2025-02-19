@@ -44,12 +44,18 @@
         border-radius: 50%; /* Make it a circle */
     }
 
-    .item p {
+    .team-number {
         margin: 0; /* Remove default margin */
-        font-size: 25px;
+        font-size: 2em;
         font-weight: bold;
         color: white;
         text-align: center; /* Center the text horizontally */
+    }
+
+    .team-name {
+        font-size: 1.5em;
+        color: white;
+        text-align: center;
     }
 
     .text-grid {

@@ -12,27 +12,11 @@
 </script>
 
 <div class="main-container">
-    
     <div class="container">
         {#each data.data.info as team}
             <TeamGalleryEntry {...team} />
         {/each}
     </div>
-
-    <!-- <div class="container">
-        <!-- loop through all data.info items  -->
-        <!-- {#each data.data.info as team} -->
-            <!-- <a href="../{team.team_num}"> -->
-                <!-- <button type="button" class="item" on:click={goToTeam(team.team_num)} aria-label="Go to team {team.team_num}">
-                    <img src={team.pfp} alt="Team Logo" />
-                    <div class="text-grid">
-                        <p class="team-number">Team {team.team_num}</p>
-                        <p class="team-name">{team.description}</p>
-                    </div>
-                </button> -->
-            <!-- </a> -->
-        <!-- {/each} -->
-    <!-- </div> --> -->
 </div>
 
 <style>
