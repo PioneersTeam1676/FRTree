@@ -21,8 +21,8 @@
       </p>
     </div>
     <div class="row">
-      <button class="btn btn-cta">Make a Profile</button>
-      <button class="btn btn-cta">View Profiles</button>
+      <button class="btn btn-1-outline btn-cta">Make a Profile</button>
+      <button class="btn btn-1-outline btn-cta">View Profiles</button>
     </div>
   </div>
 </div>
@@ -61,7 +61,7 @@
     padding: 50px 0px;
     display: flex;
     justify-content: center;
-    background-color: var(--color-3);
+    background-color: var(--color3);
   }
 
   .below-features {
@@ -69,7 +69,7 @@
     padding: 50px 0px;
     display: flex;
     justify-content: center;
-    background-color: var(--color-2);
+    background-color: var(--color2);
   }
 
 
@@ -91,29 +91,12 @@
   .mission-hr {
     width: 100%;
     height: 0px;
-    border: 1.25px solid var(--color-1);
+    border: 1.25px solid var(--color1);
   }
 
   .btn-cta {
     width: 100%;
     font-size: 1.5em;
-  }
-
-  .btn {
-    padding: 10px 15px; /* Button padding */
-    background-color: var(--color-0); /* Button background color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-  }
-
-  .btn:hover {
-    background-color: var(--color-1); /* Change background color on hover */
-  }
-
-  .btn:active {
-    background-color: var(--color-2); /* Change background color on click */
   }
 
   .main-content {
@@ -125,11 +108,7 @@
     display: flex;
     justify-content: space-around;
     padding: 20px 40px;
-    background-color: var(--color-2);
-  }
-
-  h1, h2 {
-    margin: 2px;
+    background-color: var(--color2);
   }
 
   .half {

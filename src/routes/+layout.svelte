@@ -1,6 +1,7 @@
 <script>
     let { children } = $props();
     import logo from "$lib/assets/LinkTreeLogo-02.png";
+    import "./global.css";
     
     
     import { onMount } from "svelte";
@@ -28,9 +29,9 @@
         <span class="input-highlight"></span>
     </div>
     <div class="button-container">
-        <a href="/gallery"><button class="btn font">Gallery</button></a>
-        <button class="btn font">Sign Up</button>
-        <button class="btn font">Sign In</button>
+        <a href="/gallery"><button class="btn btn-1 font">Gallery</button></a>
+        <button class="btn btn-1 font">Sign Up</button>
+        <button class="btn btn-1 font">Sign In</button>
         <a href="https://team1676.com"
             ><img
                 class="header-pfp"
@@ -46,14 +47,6 @@
 </div>
 
 <style>
-
-:root {
-    --color1: #007acc;
-    --color2: #3e3e42;
-    --color3: #2d2d30;
-    --color4: #252526;
-    --color5: #1e1e1e;
-}
 
 /* Font */
 .font {
@@ -72,33 +65,6 @@
 .logo-img{
     margin-left: .7vw;
     height: 60px;
-}
-
-.button-container {
-    display: flex; /* Use flexbox for the button container */
-    align-items: center; /* Center buttons vertically */
-    margin-left: auto; /* Push the button container to the right */
-}
-
-
-.btn {
-    margin-right: 1vw; /* Space between buttons */
-    padding: 10px 15px; /* Button padding */
-    background-color: var(--color4); /* Button background color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: 0.3s ease; /* Smooth transition for background color */
-    color: var(--color1);
-}
-
-.btn:hover {
-    background-color: var(--color3); /* Change background color on hover */
-    color: var(--color1); /* Change text color on hover (optional) */
-}
-
-.btn:active {
-    background-color: var(--color2); /* Change background color on hover */
 }
 
 .header-pfp {
