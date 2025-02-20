@@ -42,6 +42,8 @@
         height: 150px; /* Adjust image size as needed */
         margin-right: 10px; /* Space between image and text */
         border-radius: 50%; /* Make it a circle */
+
+        object-fit: cover;
     }
 
     .team-number {
