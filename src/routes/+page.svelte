@@ -21,8 +21,8 @@
       </p>
     </div>
     <div class="row">
-      <button class="btn btn-1-outline btn-cta">Make a Profile</button>
-      <button class="btn btn-1-outline btn-cta">View Profiles</button>
+      <button onclick={() => window.location.href="./sign_up"} class="btn btn-1-outline btn-cta">Make a Profile</button>
+      <button onclick={() => window.location.href="./gallery"} class="btn btn-1-outline btn-cta">View Profiles</button>
     </div>
   </div>
 </div>
