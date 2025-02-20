@@ -9,11 +9,10 @@
 
 <div class="main-container">
     <div class="container">
-
     <!-- loop through all data.info items  -->
     {#each data.data.info as team}
 
-        <div class="item">
+        <div class="item"> <!-- Change this to an anchor tag once it is ready to be used -->
             <img src="{team.pfp}" alt="Team Logo">
             <div class="text-grid">
                 <p class="team-number">Team {team.team_num}</p>
@@ -35,6 +34,7 @@
     --color2: #3e3e42;
     --color3: #2d2d30;
     --color4: #252526;
+    --color5: #1e1e1e;
 }
 
     :global(html) {color: var(--color2)}
@@ -86,7 +86,7 @@
     
     .item p {
         margin: 0; /* Remove default margin */
-        font-size: 25px;
+        font-size: 22px;
         font-weight: bold;
         color: white;
         text-align: center; /* Center the text horizontally */

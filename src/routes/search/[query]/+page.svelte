@@ -99,11 +99,105 @@ Results:
 
 -->
 {#each newData as item}
-    <a href="/{item.team_num}">
-        <div class="search-result">
-            <h1>{item.team_num}</h1>
-        </div>
-        <h6>{item.description}</h6>
-    </a>
+<div class="main-container">
+    <div class="container">
+            <a class="item" href="/{item.team_num}">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnewshour-classroom-tc.digi-producers.pbs.org%2Fuploads%2Fimages%2FJimmyCarter-1024x683.width-1024.jpg&amp;f=1&amp;nofb=1&amp;ipt=95f057b39b5ca5108705e17d9555f4138ac49906bbfe645835f0e750ba873a1f&amp;ipo=images" alt="Team Logo">
+                <div class="search-result text-grid">
+                    <h1 class="team-number">{item.team_num}</h1>
+                    <h6 class="team-name">{item.description}</h6>
+                </div>
+            </a>
+    </div>
+</div>
 {/each}
 
+
+<!-- <div class="main-container">
+    <div class="container">
+    {#each data.data.info as team}
+
+        <div class="item">
+            <img src="{team.pfp}" alt="Team Logo">
+            <div class="text-grid">
+                <p class="team-number">Team {team.team_num}</p>
+                <p class="team-name">{team.description}</p>
+            </div>    
+        </div>
+
+    {/each}
+
+    </div>
+</div> -->
+
+
+<style>
+    :root {
+    --color1: #007acc;
+    --color2: #3e3e42;
+    --color3: #2d2d30;
+    --color4: #252526;
+    --color5: #1e1e1e;
+}
+
+    :global(html) {color: var(--color2)}
+    :global(body) {margin:0px; background: var(--color3);}
+
+    .main-container {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 20px;
+        /*height: 100vh;*/ /* Optional: make it full height */
+        }
+
+    .container {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 100vw; /* Adjust as needed */
+    }
+
+    .item {
+        display: flex;
+        align-items: center; /* Center vertically */
+        width: calc(25% - 50px); /* 4 items per row with some margin */
+        margin: 30px; /* Space between items */
+        background: var(--color2);
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0px black;
+        padding: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease; /* Smooth transition for scaling */
+    }
+    .item:hover {
+        transform: scale(1.01); /* Enlarge the button on hover */
+    }
+
+    .item:active {
+        transform: scale(0.99); /* Slightly shrink the button */
+    }
+
+
+    .item img {
+        width: 150px; /* Adjust image size as needed */
+        height: 150px; /* Adjust image size as needed */
+        margin-right: 10px; /* Space between image and text */
+        border-radius: 50%; /* Make it a circle */
+    }
+    
+    .text-grid h1, .text-grid h6 {
+        margin: 0; /* Remove default margin */
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+        text-align: center; /* Center the text horizontally */
+        }
+        
+    .text-grid {
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+    }
+</style>

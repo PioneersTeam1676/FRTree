@@ -192,11 +192,11 @@
     } */
 
 
-    .children-loc {
+    /* .children-loc {
         padding: 10px;
         width: 100%;
         height: 90vh;
-    }
+    } */
 
     .header-title {
         padding-left: 10px;
@@ -204,9 +204,9 @@
         color: var(--color1)
     }
 
-    :global(h1, h2, h3, h4, h5, h6, p, span) {
+    /* :global(h1, h2, h3, h4, h5, h6, p, span) {
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    } */
 
     /* :global(p, span) {
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
