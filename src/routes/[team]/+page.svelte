@@ -1,12 +1,17 @@
 <script>
     export let data;
     import { onMount } from 'svelte';
+    import "@fortawesome/fontawesome-free/css/all.min.css";
+
+    let loaded = false;
+    let team = null;
 
     onMount(async () => {
         // Ensure data is defined before accessing its properties
         if (data?.data?.info?.[0]) {
             document.documentElement.style.setProperty('--primary-col', data.data.info[0].primary_col);
             document.documentElement.style.setProperty('--secondary-col', data.data.info[0].secondary_col);
+            loaded = true;
         }
     });
 
@@ -17,40 +22,43 @@
     <h1>This team hasnt signed up yet! If you are this team and would like to you can go <a href="/signup">here</a> or you can tell them to sign up!</h1>
 {/if}
 
-<div class="main">
-    <div class="pfp-div">
-        <h1>Team {data.data.info[0].team_num}</h1>
-        <img class="pfp" src="{data.data.info[0].pfp}" alt="pfp">
-        <p class="description"> {data.data.info[0].description}</p>
-    </div>
+{#if loaded == false}
+    <h1>Loading...</h1>
+{:else}
+    <div class="main">
+        <div class="pfp-div">
+            <h1>Team {data.data.info[0].team_num}</h1>
+            <h2>{data.data.info[0].team_full_name}</h2>
+            <p><i class="fa-solid fa-location-dot"></i>&nbsp;{data.data.info[0].location}</p>
+            <img class="pfp" src="{data.data.info[0].pfp}" alt="pfp">
+            <p class="description"> {data.data.info[0].description}</p>
+        </div>
 
-    <div class="all-links">
+        <div class="all-links">
 
-        {#each data.data.links as link}
-            <div class="button-divs">
-                <a href="{link.url}" target="_blank">
-                    <button class="tree-buttons" id="redirectWebsite">
-    
-                        <div class="container">
-                            <div class="grid1">
-                                <img class="button-logo" src="{link.icon}" alt="button logo">
-                            </div>
-                            <div class="grid2">
-                                <p class="tree-header">{link.title}</p>
-                                <p class="bg-info">{link.description}</p>
-                            </div>
-                        </div>
-                    </button>
-                </a>
-            </div>
-        {/each}
+            {#each data.data.links as link}
+                <div class="button-divs">
+                    <a href="{link.url}" target="_blank">
+                        <button class="tree-buttons" id="redirectWebsite">
         
+                            <div class="container">
+                                <div class="grid1">
+                                    <img class="button-logo" src="{link.icon}" alt="button logo">
+                                </div>
+                                <div class="grid2">
+                                    <p class="tree-header">{link.title}</p>
+                                    <p class="bg-info">{link.description}</p>
+                                </div>
+                            </div>
+                        </button>
+                    </a>
+                </div>
+            {/each}
+            
 
+        </div>
     </div>
-</div>
-
-
-
+{/if}
 
 <style>
     :root {
@@ -69,6 +77,10 @@
 
     .main {
         display: grid;
+        margin: 0px;
+        width: 100%;
+        min-height: 100%;
+        background: var(--secondary-col);
     }
 
     .description {
@@ -122,8 +134,8 @@
         cursor: pointer;
         transition: transform 0.2s ease; /* Smooth transition for scaling */
         box-shadow: 0 0 5px 0px black;
-
-
+        width: 100%;
+        padding: 10px;
     }
 
     .tree-buttons:hover {
@@ -139,11 +151,12 @@
         color: white;
         font-family: 'Helvetica', 'Arial', sans-serif;
         font-weight: bold;
+        font-size: 2em;
     }
 
     .button-logo {
-        width: 80px;
-        height: 80px;
+        width: 200px;
+        height: 200px;
         border-radius: 5px;
     }
 

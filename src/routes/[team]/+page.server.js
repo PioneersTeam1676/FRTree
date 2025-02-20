@@ -6,13 +6,13 @@ export async function load( { params }) {
 
     try {
         let links = await connection
-            .query(`SELECT * FROM frclink_links WHERE team_num = ${params.team}`)
+            .query(`SELECT * FROM frclink_links WHERE team_num = ?`, params.team)
             .then(([rows, fields]) => {
                 console.log(rows);
                 return rows;
             });
         let info = await connection
-            .query(`SELECT * FROM frclink_info WHERE team_num = ${params.team} LIMIT 1`)
+            .query(`SELECT * FROM frclink_info WHERE team_num = ? LIMIT 1`, params.team)
             .then(([rows, fields]) => {
                 console.log(rows);
                 return rows;

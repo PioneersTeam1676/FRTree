@@ -1,0 +1,52 @@
+:root {
+    --color1: #007acc;
+    --color1_em: #3da6eb;
+    --color2: #3e3e42;
+    --color3: #2d2d30;
+    --color4: #252526;
+    --color5: #1e1e1e;
+
+    color: white;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
+}
+
+.button-container, .btn-container {
+    display: flex; /* Use flexbox for the button container */
+    align-items: center; /* Center buttons vertically */
+    margin-left: auto; /* Push the button container to the right */
+}
+
+.btn {
+    margin-right: 1vw; /* Space between buttons */
+    padding: 10px 15px; /* Button padding */
+    background-color: var(--color4); /* Button background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: 0.3s ease; /* Smooth transition for background color */
+    color: var(--color1);
+}
+
+.btn-1 {
+    background-color: var(--color1);
+    color: white;
+}
+
+.btn-1:hover, .btn-1:active {
+    background-color: var(--color1_em);
+    color: white; /* Change text color on hover (optional) */
+}
+
+.btn-1-outline {
+    background-color: transparent;
+    border: 2.25px solid var(--color1);
+}
+
+.btn-1-outline:hover, .btn-1-outline:active {
+    background-color: var(--color1);
+    color: white;
+}
+
+h1, h2 {
+    margin: 2px;
+}

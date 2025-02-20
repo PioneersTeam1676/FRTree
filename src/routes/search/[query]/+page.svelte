@@ -5,6 +5,7 @@
     // console.log(data);
 
     import { onMount } from "svelte";
+    import TeamGalleryEntry from "../../../TeamGalleryEntry.svelte";
 
     /**
      * Returns a normalized value representing the similarity between two strings.
@@ -99,17 +100,7 @@ Results:
 
 -->
 {#each newData as item}
-<div class="main-container">
-    <div class="container">
-            <a class="item" href="/{item.team_num}">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnewshour-classroom-tc.digi-producers.pbs.org%2Fuploads%2Fimages%2FJimmyCarter-1024x683.width-1024.jpg&amp;f=1&amp;nofb=1&amp;ipt=95f057b39b5ca5108705e17d9555f4138ac49906bbfe645835f0e750ba873a1f&amp;ipo=images" alt="Team Logo">
-                <div class="search-result text-grid">
-                    <h1 class="team-number">{item.team_num}</h1>
-                    <h6 class="team-name">{item.description}</h6>
-                </div>
-            </a>
-    </div>
-</div>
+    <TeamGalleryEntry {...item} />
 {/each}
 
 
