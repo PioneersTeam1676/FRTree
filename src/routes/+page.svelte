@@ -6,7 +6,7 @@
 <div class="main-content">
   <div class="half">
     <!-- <p>thing goes here</p> -->
-    <img alt="Monica Lewinsky Government Photograph" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Monica_lewinsky.jpg/300px-Monica_lewinsky.jpg">
+    <img alt="Linktree Logo" src="src/lib/assets/LinkTreeLogo-01.png">
   </div>
   <div class="half">
     <h1 style="font-size:5em">FRTree</h1>

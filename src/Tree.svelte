@@ -124,6 +124,7 @@
         position: relative;
         max-width: 10%;
         z-index: 2;
+        object-fit: cover;
     }
 
     .banner {
