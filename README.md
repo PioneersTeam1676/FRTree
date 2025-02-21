@@ -9,6 +9,7 @@ Nate remember to test all the following things before committing:
 4. Clicking a link works
 5. Team data loads
 6. Styling looks correct
+7. Re-read every line of code to make sure nate was locked in while coding. 
 
 ## Currently known bugs
 * SQL INJECTION ATTACK routes/[team]/+page.server.js
