@@ -1,10 +1,12 @@
 :root {
     --color1: #007acc;
-    --color1_em: #3da6eb;
+    --color1-em: #3da6eb;
     --color2: #3e3e42;
     --color3: #2d2d30;
     --color4: #252526;
     --color5: #1e1e1e;
+    --color-danger: rgb(209, 47, 47);
+    --color-danger-em: rgb(216, 84, 84);
 
     color: white;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
@@ -20,11 +22,16 @@
     margin-right: 1vw; /* Space between buttons */
     padding: 10px 15px; /* Button padding */
     background-color: var(--color4); /* Button background color */
-    border: none; /* Remove default border */
+    border: 2px solid transparent; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: 0.3s ease; /* Smooth transition for background color */
+    transition: color 0.3s ease, background-color 0.3s ease, border 0.1s; /* Smooth transition for background color */
     color: var(--color1);
+    box-sizing: border-box;
+}
+
+.btn:active {
+    border: inset 2px;
 }
 
 .btn-1 {
@@ -32,8 +39,18 @@
     color: white;
 }
 
+.btn-danger {
+    background-color: var(--color-danger);
+    color: white;
+}
+
 .btn-1:hover, .btn-1:active {
-    background-color: var(--color1_em);
+    background-color: var(--color1-em);
+    color: white; /* Change text color on hover (optional) */
+}
+
+.btn-danger:hover, .btn-danger:active {
+    background-color: var(--color-danger-em);
     color: white; /* Change text color on hover (optional) */
 }
 
