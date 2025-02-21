@@ -49,9 +49,41 @@
         text-decoration: none;
     }
 
-    
-    :global(h1, h2, h3, h4, h5, h6, p, span) {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    .header-pfp {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        margin-right: 1vw;
     }
+
+    /* :root {
+        --color-0: #b7c685;
+        --color-1: #ccd5ae;
+        --color-2: #e9edc9;
+        --color-3: #fefae0;
+        --color-4: #faedcd;
+        --color-5: #d4a373;
+        --color-b: #212121;
+        --color-w: #ececec;
+    } */
+
+
+    /* .children-loc {
+        padding: 10px;
+        width: 100%;
+        height: 90vh;
+    } */
+
+    .header-title {
+        padding-left: 10px;
+        font-size: 2em;
+        color: var(--color1)
+    }
+
+    /* :global(h1, h2, h3, h4, h5, h6, p, span) {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    } */
+
 
 </style>

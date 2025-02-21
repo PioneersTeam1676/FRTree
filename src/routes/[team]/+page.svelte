@@ -62,10 +62,19 @@
 
 <style>
     :root {
-        /* --primary-col: #3E7B27;
-        --secondary-col: #85A947; */
+        --color1: #007acc;
+        --color2: #3e3e42;
+        --color3: #2d2d30;
+        --color4: #252526;
+        --color5: #1e1e1e;
+        --primary-col: #3E7B27;
+        --secondary-col: #85A947;
     }
     
+    :global(html) {color: var(--color2);}
+    :global(body) {margin:0px; background: var(--color3);}
+    
+
     .main {
         display: grid;
         margin: 0px;
