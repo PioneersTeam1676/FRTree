@@ -87,21 +87,17 @@
 
 </script>
 
-Results:
-<!-- 
-
-    write the code for each search result inside the each block
-
-    {item.team_num} = team number
-    {item.description} = team description (like "pascack pi-oneers")
-    {item.pfp} = team profile picture url
+<h1 class="result" id="result">Results for <i>"{query}"</i></h1>
 
 
 
--->
-{#each newData as item}
-    <TeamGalleryEntry {...item} />
-{/each}
+<div class="main-container">
+    <div class="container">
+        {#each newData as item}
+            <TeamGalleryEntry {...item} />
+        {/each}
+    </div>
+</div>
 
 
 <!-- <div class="main-container">
@@ -150,45 +146,49 @@ Results:
         max-width: 100vw; /* Adjust as needed */
     }
 
-    .item {
+    .result {  
+        font-size: 20px;
+    }
+
+    /* .item {
         display: flex;
-        align-items: center; /* Center vertically */
-        width: calc(25% - 50px); /* 4 items per row with some margin */
-        margin: 30px; /* Space between items */
+        align-items: center; 
+        width: calc(25% - 50px);
+        margin: 30px;
         background: var(--color2);
         border-radius: 5px;
         box-shadow: 0 0 5px 0px black;
         padding: 10px;
         cursor: pointer;
-        transition: transform 0.2s ease; /* Smooth transition for scaling */
+        transition: transform 0.2s ease; 
     }
     .item:hover {
-        transform: scale(1.01); /* Enlarge the button on hover */
+        transform: scale(1.01); 
     }
 
     .item:active {
-        transform: scale(0.99); /* Slightly shrink the button */
+        transform: scale(0.99); 
     }
 
 
     .item img {
-        width: 150px; /* Adjust image size as needed */
-        height: 150px; /* Adjust image size as needed */
-        margin-right: 10px; /* Space between image and text */
-        border-radius: 50%; /* Make it a circle */
+        width: 150px; 
+        height: 150px; 
+        margin-right: 10px;
+        border-radius: 50%;
     }
     
     .text-grid h1, .text-grid h6 {
-        margin: 0; /* Remove default margin */
+        margin: 0; 
         font-size: 22px;
         font-weight: bold;
         color: white;
-        text-align: center; /* Center the text horizontally */
+        text-align: center; 
         }
         
     .text-grid {
         flex-direction: column;
         display: flex;
         width: 100%;
-    }
+    } */
 </style>

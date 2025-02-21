@@ -1,6 +1,7 @@
 :root {
     --color1: #007acc;
     --color1_em: #3da6eb;
+    --color1_em2: #64bbf5;
     --color2: #3e3e42;
     --color3: #2d2d30;
     --color4: #252526;
@@ -32,9 +33,13 @@
     color: white;
 }
 
-.btn-1:hover, .btn-1:active {
+.btn-1:hover {
     background-color: var(--color1_em);
-    color: white; /* Change text color on hover (optional) */
+    color: white; 
+}
+
+.btn-1:active {
+    background-color: var(--color1_em2);
 }
 
 .btn-1-outline {
