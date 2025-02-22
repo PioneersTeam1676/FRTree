@@ -45,18 +45,18 @@
         height: 100%;
     }
 
-    a {
+    /* a {
         color: black;
         text-decoration: none;
-    }
+    } */
 
 
-    .header-pfp {
+    /* .header-pfp {
         height: 60px;
         width: 60px;
         border-radius: 50%;
         margin-right: 1vw;
-    }
+    } */
 
     /* :root {
         --color-0: #b7c685;
@@ -76,11 +76,11 @@
         height: 90vh;
     } */
 
-    .header-title {
+    /* .header-title {
         padding-left: 10px;
         font-size: 2em;
         color: var(--color1)
-    }
+    } */
 
     /* :global(h1, h2, h3, h4, h5, h6, p, span) {
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
