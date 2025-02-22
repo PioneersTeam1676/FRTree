@@ -124,16 +124,4 @@
         padding: 0px 5px;
     }
 
-    .input-group {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        width: 20%;
-        margin: 10px;
-    }
-
 </style>

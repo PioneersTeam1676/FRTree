@@ -18,20 +18,19 @@
     
 </script>
 
-{#if data.data.length <= 0}
-    <h1>This team hasnt signed up yet! If you are this team and would like to you can go <a href="/signup">here</a> or you can tell them to sign up!</h1>
-{/if}
-
 {#if loaded == false}
-    <h1>Loading...</h1>
+<h1>Loading...</h1>
 {:else}
     <div class="main">
         <div class="pfp-div">
             <h1>Team {data.data.info[0].team_num}</h1>
             <h2>{data.data.info[0].team_full_name}</h2>
             <p><i class="fa-solid fa-location-dot"></i>&nbsp;{data.data.info[0].location}</p>
-            <img class="pfp" src="{data.data.info[0].pfp}" alt="pfp">
-            <p class="description"> {data.data.info[0].description}</p>
+            <img class="pfp" src="{data.data.info[0].pfp}" alt="pfp not found" />
+            <p class="description">{data.data.info[0].description}</p>
+            {#if data.data.autofilled}
+            <i class="description">Team Information autofilled</i>
+            {/if}
         </div>
 
         <div class="all-links">

@@ -1,5 +1,5 @@
 <script>
-    let { children } = $props();
+    let { children, loggedInAs } = $props();
     import logo from "$lib/assets/LinkTreeLogo-02.png";
 
     import { onMount } from "svelte";
@@ -14,7 +14,8 @@
         }
     }
 
-    let loggedIn = true;
+    let loggedIn = loggedInAs !== -1;
+
 </script>
 
 <div class="header">
@@ -28,8 +29,9 @@
     <div class="button-container">
         <a href="/gallery"><button class="btn btn-1 font">Gallery</button></a>
         {#if loggedIn}
-            <a href="/preview"><button class="btn btn-1 font">Preview</button></a>
-            <a href="/editor"><button class="btn btn-1 font">Editor</button></a>
+            <a href="/{loggedInAs}"><button class="btn btn-1 font">Preview</button></a>
+            <a href="/{loggedInAs}/editor"><button class="btn btn-1 font">Editor</button></a>
+            <button class="btn btn-1-outline font">Team {loggedInAs}</button>
         {:else}
             <a href="/sign_up"><button class="btn btn-1 font">Sign Up</button></a>
             <a href="/sign_in"><button class="btn btn-1 font">Sign In</button></a>

@@ -1,5 +1,6 @@
 <script>
-    let { children } = $props();
+    let { children, data } = $props();
+    let loggedInAs = data.data.loggedInAs;
     import logo from "$lib/assets/LinkTreeLogo-02.png";
     import "./global.css";
     import Navbar from "../Navbar.svelte";
@@ -17,7 +18,7 @@
     }
 </script>
 
-<Navbar />
+<Navbar loggedInAs={1676} />
 
 <div class="children">
     {@render children()}
