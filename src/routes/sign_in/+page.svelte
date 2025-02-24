@@ -1,22 +1,42 @@
+<script>
+    import { post } from "$lib/apis";
+
+    let email = $state("");
+    let password = $state("");
+
+    async function submit() {
+        const res = await post("/sign_in/create", {
+            email,
+            password
+        });
+        if (res.isSuccess()) {
+            const sessionId = res.data.sessionId;
+            const onedayfromnow = new Date(Date.now() + 1000 * 60 * 60 * 24);
+            document.cookie = `sessionId=${sessionId}; expires=${onedayfromnow.toUTCString()}; path=/;`;
+            window.location.href = "/";
+        } else {
+            alert("Error: " + res.message);
+        }
+    }
+</script>
 
 <div class="main">
     <div class="form">
         <h1>Sign in</h1>
         <div class="input-group">
             <label for="email">Email</label>
-            <input id="email" type="text">
+            <input bind:value={email} id="email" type="text" />
         </div>
-    
+
         <div class="input-group">
             <label for="password">Password</label>
-            <input id="password" type="password">
+            <input bind:value={password} id="password" type="password" />
         </div>
-        <button>Send verification code</button>
+        <button id="submit" onclick={submit}>Submit</button>
     </div>
 </div>
 
 <style>
-
     .main {
         margin: auto;
         width: 100%;
@@ -28,7 +48,9 @@
         margin-bottom: 20px;
     }
 
-    label, input, button {
+    label,
+    input,
+    button {
         font-size: 1.5em;
     }
 

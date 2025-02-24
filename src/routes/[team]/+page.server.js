@@ -54,14 +54,23 @@ export async function load({ params }) {
             }
         }).then(res => res.json());
 
-        // links = json_links.map(link => {
-        //     return {
-        //         url: link.direct_url,
-        //         icon: "",
-        //         title: link.type,
-        //         description: ""
-        //     }
-        // });
+        links = json_links.map(link => {
+
+            let url;
+            let icon;
+
+            if (link.type === "facebook-profile") {
+                url = "https://www.facebook.com/" + link.foreign_key;
+                icon = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F020%2F964%2F386%2Foriginal%2Ffacebook-circle-icon-for-web-design-free-png.png&f=1&nofb=1&ipt=8888f278e445a14d8cc21da16ff0667598481d17c53ed724b24634afee6775b4&ipo=images"
+            }
+
+            return {
+                url: link.direct_url,
+                icon: "",
+                title: link.type,
+                description: ""
+            }
+        });
 
         info = [{
             primary_color: "#fff",

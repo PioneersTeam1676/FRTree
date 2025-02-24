@@ -1,20 +1,26 @@
 import { mysqlConnection } from "$lib/db/mysql";
-import { getTeam } from "$lib/db/sessions";
+import { getSessionBySessionId } from "$lib/db/sessions";
 import { error } from "@sveltejs/kit";
+import { responseError, responseSuccess, HTTP } from "$lib/apis";
 
 export async function load({ params, cookies }) {
 
-    const session = cookies.get("session");
+    const sessionId = cookies.get("sessionId");
     const teamNotNumber = params.team;
     const team = Number(teamNotNumber);
 
     if (!Number.isInteger(team)) {
-        return error(400, `team ${team} is not an integer`);
+        return error(HTTP.BAD_REQUEST, `team ${team} is not an integer`);
     }
 
-    const teamAuthorized = getTeam(session);
+    const session = getSessionBySessionId(sessionId);
+    if (!session) {
+        return error(HTTP.UNAUTHORIZED, `invalid session`);
+    }
+
+    const teamAuthorized = session.team_num;
     if (teamAuthorized !== team) {
-        return error(401, `invalid session`);
+        return error(HTTP.UNAUTHORIZED, `invalid session: only authorized as team ${teamAuthorized}`);
     }
 
     let connection = await mysqlConnection();

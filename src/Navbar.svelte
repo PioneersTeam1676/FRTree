@@ -1,5 +1,5 @@
 <script>
-    let { children, loggedInAs } = $props();
+    let { loggedIn, loggedInAs } = $props();
     import logo from "$lib/assets/LinkTreeLogo-02.png";
 
     import { onMount } from "svelte";
@@ -13,8 +13,6 @@
             window.location.href = `/search/${event.target.value}`;
         }
     }
-
-    let loggedIn = loggedInAs !== -1;
 
 </script>
 

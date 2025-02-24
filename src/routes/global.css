@@ -27,7 +27,7 @@
     margin-right: 1vw; /* Space between buttons */
     padding: 10px 15px; /* Button padding */
     background-color: var(--color4); /* Button background color */
-    border: 2px solid transparent; /* Remove default border */
+    border: 2.25px solid transparent; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor on hover */
     transition: color 0.3s ease, background-color 0.3s ease, border 0.1s; /* Smooth transition for background color */
@@ -36,7 +36,7 @@
 }
 
 .btn:active {
-    border: inset 2px;
+    border: inset 2.25px;
 }
 
 .btn-1 {
