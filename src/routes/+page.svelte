@@ -41,7 +41,25 @@
     <h2 class="mission-h2">Features</h2>
     <div class="mission-hr"></div>
 
-    <i class="mission-i">Some of these features are still in the works</i>
+    <div class="features">
+      <div class="features-box1 features-boxes">
+        <img class="features-img" src="src/lib/assets/LinkTreeLogo-01.png" alt="features-img">
+      </div>
+      <div class="features-box2 features-boxes">
+        <ul class="features-list">
+          <li class="mission-li"><strong>Feature-rich Search:</strong> Search for teams by code (e.g., 1676), team name (e.g., Pascack Pi-oneers), or general information (e.g., Pascack Hills, Pi, speaker award).</li>
+          <li class="mission-li"><strong>Team Information:</strong> Access valuable information about each team, including team name, location, a list of awards, and links set by team administrators.</li>
+          <li class="mission-li"><strong>Quick Contact Links:</strong> Teams can use links to reach out and contact one another, including social media profiles, websites, blogs, and other important information.</li>
+          <li class="mission-li"><strong>Secure Administrator Portal:</strong> Team administrators can manage their team’s page, change color palettes, modify descriptions, add or remove links, and more.</li>
+        </ul>
+      </div>
+      
+    </div>
+
+
+
+
+    <!-- <i class="mission-i">Some of these features are still in the works</i>
     <p class="mission-p">
       For anyone looking for information on a team, the feature-rich search will allow you to search for teams either by their code <i>e.g. 1676</i>, by their team name <i>e.g. Pascack Pi-oneers</i>, or by more general information <i>e.g. Pascack Hills, Pi, speaker award</i>.
     </p>
@@ -50,7 +68,7 @@
     </p>
     <p class="mission-p">
       Team administrators can access a secure portal to manage their teams page. They can change the color pallete of their page, modify their description, add or remove links, and much more.
-    </p>
+    </p> -->
   </div>
 </div>
 
@@ -81,6 +99,11 @@
     text-align: center;
     font-size: 2em;
     margin: 20px 0px;
+  }
+
+  .mission-li {
+    font-size: 1.25em;
+    margin: 10px 0px;
   }
 
   .mission-p {
@@ -135,4 +158,26 @@
     width: 100%;
     /* border: 2px solid lime; */
   }
+
+  .features {
+    display: grid; /* Use Grid */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    width: 100%; /* Full width */
+    height: 200px; /* Set a height for visibility */
+}
+
+.features-boxes {
+  padding: 20px; /* Add some padding */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+.features-img {
+  width: 100%;
+  height: 100%;
+}
+
+.features-list li{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 </style>
