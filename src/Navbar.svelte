@@ -60,7 +60,10 @@
         align-items: center; /* Center vertically */
         width: 100vw;
         height: 10vh;
-        background-color: var(--color5);
+        background-color: rgba(30, 30, 30, .9);
+        position: sticky; 
+        top: 0; 
+        z-index: 1000;
     }
 
     .logo-img {
