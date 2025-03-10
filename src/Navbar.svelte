@@ -14,26 +14,61 @@
         }
     }
 
+    let show = $state(false);
+
+    function dropMenuDown() {
+        show = !show;
+    }
+
+
+onMount(() => {
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+    }
+}
+})
+
+
+
 </script>
 
 <div class="header">
     <a href="/"><img class="logo-img" src={logo} alt="logo" /></a>
-    <a href="/"><div class="header-title font">FRTree</div></a>
+    <a href="/"><div class="header-title font hide-on-small-screen">FRTree</div></a>
     <div class="search-bar">
         <input onkeydown={search} placeholder="Enter text" class="input-field" type="text" />
         <label for="input-field" class="input-label">Search for a team</label>
         <span class="input-highlight"></span>
     </div>
     <div class="button-container">
-        <a href="/gallery"><button class="btn btn-1 font">Gallery</button></a>
+        <a href="/gallery"><button class="btn btn-1 font hide-on-small-screen">Gallery</button></a>
+        <button class="btn btn-1 font show-on-small-screen dropbtn" onclick={() => {dropMenuDown()}}>Menu</button>
+        <div class="dropdown">
+            <div id="myDropdown" class="dropdown-content show-on-small-screen {show ? "show" : ""}">
+                <a href="#" class="show-on-small-screen">Gallery</a>
+                <a href="#" class="show-on-small-screen">Sign Up</a>
+                <a href="#" class="show-on-small-screen">Sign In</a>
+            </div>
+        </div>    
+
+
         {#if loggedIn}
             <a href="/{loggedInAs}"><button class="btn btn-1 font">Preview</button></a>
-            <a href="/{loggedInAs}/editor"><button class="btn btn-1 font">Editor</button></a>
+            <a href="/{loggedInAs}/editor"><button class="btn btn-1 font ">Editor</button></a>
             <button class="btn btn-1-outline font">Team {loggedInAs}</button>
         {:else}
-            <a href="/sign_up"><button class="btn btn-1 font">Sign Up</button></a>
-            <a href="/sign_in"><button class="btn btn-1 font">Sign In</button></a>
+            <a href="/sign_up"><button class="btn btn-1 font hide-on-small-screen">Sign Up</button></a>
+            <a href="/sign_in"><button class="btn btn-1 font hide-on-small-screen">Sign In</button></a>
         {/if}
+
         <a href="https://team1676.com"
             ><img
                 class="header-pfp"
@@ -154,5 +189,49 @@
         padding-left: 10px;
         font-size: 2em;
         color: var(--color1);
+    }
+
+    .show-on-small-screen {
+        display: none;
+    }
+
+    @media screen and (max-width: 720px) {
+        .hide-on-small-screen {
+            display: none;
+        }
+
+        .show-on-small-screen{
+            display: block;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #007acc;
+            min-width: 85px; /* You can set this to match the button width */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: -90px; /* Align with the left edge of the button */
+            top: 20px; /* Position it directly below the button */
+        }
+
+        /* Links inside the dropdown */
+            .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
     }
 </style>

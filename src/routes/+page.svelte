@@ -120,6 +120,7 @@
   .btn-cta {
     width: 100%;
     font-size: 1.5em;
+    height: 100%;
   }
 
   .main-content {
@@ -167,8 +168,10 @@
 }
 
 .features-boxes {
-  padding: 20px; /* Add some padding */
-  box-sizing: border-box; /* Include padding in width/height */
+  padding: 20px; 
+  box-sizing: border-box; 
+  height: 470px;
+  width: 470px;
 }
 
 .features-img {
@@ -179,5 +182,6 @@
 .features-list li{
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 18px;
 }
 </style>
