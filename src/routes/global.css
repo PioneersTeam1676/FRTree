@@ -1,16 +1,29 @@
 :root {
-    --color1: #007acc;
-    --color1_em: #3da6eb;
-    --color1_em2: #64bbf5;
-    --color2: #3e3e42;
-    --color3: #2d2d30;
-    --color4: #252526;
-    --color5: #1e1e1e;
-    --color-danger: rgb(209, 47, 47);
-    --color-danger-em: rgb(216, 84, 84);
+    --color1: #00c3ff;
+    --color1_em: #20d0ff;
+    --color1_em2: #47e3ff;
+    --color2: #1a1a2e;
+    --color3: #16213e;
+    --color4: #0f3460;
+    --color5: #0a1128;
+    --color-danger: rgb(255, 53, 71);
+    --color-danger-em: rgb(255, 84, 98);
+    --color-glow: rgba(0, 195, 255, 0.3); /* Reduced glow intensity */
+    --color-accent: #7b2cbf;
+    --color-accent2: #5a189a;
 
-    color: white;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
+    color: #e6f1ff;
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif; 
+}
+
+body {
+    background: linear-gradient(135deg, var(--color3) 0%, var(--color5) 100%);
+    background-attachment: fixed;
+}
+
+:global(html) {
+    background: linear-gradient(135deg, var(--color3) 0%, var(--color5) 100%) !important;
+    background-attachment: fixed !important;
 }
 
 .main, main {
@@ -18,64 +31,87 @@
 }
 
 .button-container, .btn-container {
-    display: flex; /* Use flexbox for the button container */
-    align-items: center; /* Center buttons vertically */
-    margin-left: auto; /* Push the button container to the right */
+    display: flex;
+    align-items: center;
+    margin-left: auto;
 }
 
 .btn {
-    margin-right: 1vw; /* Space between buttons */
-    padding: 10px 15px; /* Button padding */
-    background-color: var(--color4); /* Button background color */
-    border: 2.25px solid transparent; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: color 0.3s ease, background-color 0.3s ease, border 0.1s; /* Smooth transition for background color */
+    margin-right: 1vw;
+    padding: 10px 15px;
+    background-color: var(--color4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.17, 0.67, 0.83, 0.67);
     color: var(--color1);
     box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 195, 255, 0.3);
 }
 
 .btn:active {
-    border: inset 2.25px;
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn-1 {
-    background-color: var(--color1);
+    background: linear-gradient(135deg, var(--color1) 0%, rgba(53, 125, 179, 0.9) 100%); /* Lighter gradient */
     color: white;
+    border: none;
 }
 
 .btn-1:hover {
-    background-color: var(--color1_em);
+    background: linear-gradient(135deg, var(--color1_em) 0%, rgba(67, 139, 194, 0.9) 100%); /* Lighter hover gradient */
     color: white; 
+    box-shadow: 0 5px 15px rgba(0, 195, 255, 0.3);
 }
 
 .btn-1:active {
-    background-color: var(--color1_em2);
-
+    background: linear-gradient(135deg, var(--color1_em2) 0%, rgba(76, 156, 219, 0.9) 100%); /* Lighter active gradient */
 }
+
 .btn-danger {
-    background-color: var(--color-danger);
+    background: linear-gradient(135deg, var(--color-danger) 0%, rgba(139, 0, 0, 0.8) 100%); /* Lighter danger gradient */
     color: white;
+    border: none;
 }
 
 .btn-danger:hover, .btn-danger:active {
-    background-color: var(--color-danger-em);
-    color: white; /* Change text color on hover (optional) */
-
+    background: linear-gradient(135deg, var(--color-danger-em) 0%, rgba(165, 0, 0, 0.8) 100%); /* Lighter hover danger gradient */
+    color: white;
 }
 
 .btn-1-outline {
     background-color: transparent;
-    border: 2.25px solid var(--color1);
+    border: 2px solid var(--color1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .btn-1-outline:hover, .btn-1-outline:active {
     background-color: var(--color1);
-    color: white;
+    color: var(--color5);
+    border-color: transparent;
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.3); /* Reduced glow intensity */
 }
 
 h1, h2 {
     margin: 2px;
+    text-shadow: 0 2px 10px rgba(0, 195, 255, 0.3);
+    letter-spacing: 1px;
 }
 
 .input-group {
@@ -88,4 +124,303 @@ form {
     flex-direction: column;
     min-width: 20%;
     max-width: 50%;
+    background: rgba(15, 52, 96, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+input, textarea, select {
+    background: rgba(10, 17, 40, 0.6);
+    border: none; /* Remove default border */
+    border-radius: 4px 4px 0 0; /* Rounded top corners only */
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    position: relative; /* For pseudo-element positioning */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Add the gradient underline to all form elements */
+input::after, textarea::after, select::after, 
+.search-input::after, .form-control::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color1), transparent);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+/* Enhanced focus styles with animated gradient */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    background: rgba(15, 25, 50, 0.6);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+input:focus::after, textarea:focus::after, select:focus::after,
+.search-input:focus::after, .form-control:focus::after {
+    height: 3px;
+    opacity: 1;
+    box-shadow: 0 0 8px var(--color-glow);
+}
+
+/* Custom animated underline styling for search bars and special inputs */
+.input-animated-underline {
+    position: relative;
+    border: none;
+    border-bottom: 2px solid transparent; /* Placeholder for the gradient */
+    background-clip: padding-box; /* Ensures the background doesn't extend under the border */
+}
+
+.input-animated-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color1), transparent);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+    border-radius: 3px;
+}
+
+.input-animated-underline:focus::after {
+    height: 3px;
+    box-shadow: 0 0 10px var(--color-glow);
+}
+
+/* Create a gradient animation for the underline */
+@keyframes gradientShift {
+    0% { background-position: 100% 0; }
+    50% { background-position: 0% 0; }
+    100% { background-position: 100% 0; }
+}
+
+/* Add a standalone gradient divider class for reuse */
+.gradient-divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color1), transparent);
+    margin: 10px 0;
+    border-radius: 3px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.gradient-divider.active {
+    height: 3px;
+    opacity: 1;
+    box-shadow: 0 0 8px var(--color-glow);
+}
+
+/* Animated glow effect for important elements */
+@keyframes glow {
+    0% { box-shadow: 0 0 5px var(--color-glow); }
+    50% { box-shadow: 0 0 20px var(--color-glow); }
+    100% { box-shadow: 0 0 5px var(--color-glow); }
+}
+
+/* Enhanced search input styling with animated gradient underline */
+.search-input, 
+.navbar-search,
+input[type="search"] {
+    background: rgba(10, 17, 40, 0.6) !important;
+    border: none !important;
+    border-radius: 4px !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: none !important;
+    position: relative !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container for search to handle the underline effect */
+.search-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+/* Gradient underline for search */
+.search-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color1), transparent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    opacity: 0.7;
+}
+
+/* Hover effect */
+.search-container:hover::after {
+    width: 80%;
+}
+
+/* Focus effect - expands the underline */
+.search-container:focus-within::after {
+    width: 100%;
+    height: 3px;
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-glow);
+    animation: pulsateUnderline 2s infinite alternate;
+}
+
+/* Animation for pulsating underline when focused */
+@keyframes pulsateUnderline {
+    0% { opacity: 0.7; box-shadow: 0 0 5px var(--color-glow); }
+    100% { opacity: 1; box-shadow: 0 0 15px var(--color-glow); }
+}
+
+/* Search placeholder styling */
+.search-input::placeholder,
+.navbar-search::placeholder,
+input[type="search"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+/* Change placeholder color on focus */
+.search-input:focus::placeholder,
+.navbar-search:focus::placeholder,
+input[type="search"]:focus::placeholder {
+    color: rgba(0, 195, 255, 0.7);
+}
+
+/* Performance optimization for animations */
+.btn, input, textarea, select, .search-input, .btn-cta {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Simplify animations on mobile devices */
+@media (max-width: 768px) {
+    @keyframes pulsateUnderline {
+        0% { opacity: 0.7; }
+        100% { opacity: 1; }
+    }
+    
+    @keyframes glow {
+        0% { box-shadow: 0 0 2px var(--color-glow); }
+        50% { box-shadow: 0 0 8px var(--color-glow); }
+        100% { box-shadow: 0 0 2px var(--color-glow); }
+    }
+    
+    /* Reduce load on mobile devices */
+    .btn:hover {
+        transform: none;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Optimize layout shifting */
+html, body {
+    overscroll-behavior-y: none; /* Prevent bounce scrolling */
+    background-color: var(--color3) !important;
+    background-image: linear-gradient(135deg, var(--color3) 0%, var(--color5) 100%) !important;
+    background-attachment: fixed !important;
+}
+
+/* Add consistent page theming */
+.page-container {
+    min-height: 100vh;
+    width: 100%;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.page-content {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Standard section styling for all pages */
+.section {
+    width: 100%;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2em;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.section-divider {
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--color1), transparent);
+    margin: 1rem auto 2rem;
+    border-radius: 3px;
+}
+
+/* Card styling for consistent UI across pages */
+.card {
+    background: rgba(22, 33, 62, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 195, 255, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--color1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+/* Make all route content transparent to show the background */
+.page-container, .main-content, .content-container, .route-content, main {
+  background: transparent !important;
 }
