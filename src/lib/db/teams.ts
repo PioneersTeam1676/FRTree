@@ -121,12 +121,14 @@ export async function getTeamFromTBA(teamNum: number): Promise<Team | undefined>
         };
     });
 
+    const year = new Date().getFullYear();
+
     const info = [{
         primary_color: "#fff",
         secondary_color: "#000",
         team_num: teamNum,
         team_full_name: json.nickname,
-        pfp: json.website + "/favicon.ico",
+        pfp: `https://thebluealliance.com/avatar/${year}/frc${teamNum}.png`,
         description: `If you are an administrator or member of Team ${teamNum}, you can add links to this page by reaching out.`,
         location: json.city + ", " + json.state_prov + ", " + json.country,
     }];
