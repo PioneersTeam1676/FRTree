@@ -1,0 +1,35 @@
+import { error, json } from "@sveltejs/kit";
+import type { RequestHandler } from "@sveltejs/kit";
+import { createHashAndSalt, createSessionForUser, hashAndSaltPassword } from "$lib/db/sessions";
+import { getUserByEmail, mysqlConnection, type User } from "$lib/db/mysql";
+import { responseError, responseSuccess, HTTP } from "$lib/apis";
+
+import { randomBytes } from "crypto";
+
+function makeCode() {
+    return `frc-${randomBytes(8).toString("hex")}`;
+}
+
+export const POST: RequestHandler = async ({ request, params }) => {
+    const json = await request.json();
+    const { email, team, expires } = json;
+
+    if (!email) {
+        return responseError("no email provided", HTTP.BAD_REQUEST);
+    }
+
+    if (!team) {
+        return responseError("no team provided", HTTP.BAD_REQUEST);
+    }
+
+    if (!expires) {
+        return responseError("no expires provided", HTTP.BAD_REQUEST);
+    }
+
+    const connection = await mysqlConnection();
+    connection.query("INSERT INTO frclink_joincodes (code, created, expires, team_num, email) VALUES (?, CURRENT_TIMESTAMP(), datetime(?, \"unixepoch\"), ?, ?)", [
+        makeCode(), new Date(expires).getTime(), team, email
+    ]);
+    
+    return responseSuccess("created join code", HTTP.CREATED);
+};

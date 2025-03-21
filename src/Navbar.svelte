@@ -14,6 +14,12 @@
         }
     }
 
+    function signout() {
+        fetch('/sign_out').then(() => {
+            window.location.href = "/";
+        });
+    }
+
 </script>
 
 <div class="header">
@@ -29,7 +35,7 @@
         {#if loggedIn}
             <a href="/{loggedInAs}"><button class="btn btn-1 font">Preview</button></a>
             <a href="/{loggedInAs}/editor"><button class="btn btn-1 font">Editor</button></a>
-            <button class="btn btn-1-outline font">Team {loggedInAs}</button>
+            <button onclick={signout} class="btn btn-1-outline font">Log Out</button>
         {:else}
             <a href="/sign_up"><button class="btn btn-1 font">Sign Up</button></a>
             <a href="/sign_in"><button class="btn btn-1 font">Sign In</button></a>

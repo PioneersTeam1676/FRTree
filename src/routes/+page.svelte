@@ -6,7 +6,7 @@
 <div class="main-content">
   <div class="half">
     <!-- <p>thing goes here</p> -->
-    <img alt="Linktree Logo" src="src/lib/assets/LinkTreeLogo-01.png">
+    <img class="logo" alt="Linktree Logo" src="src/lib/assets/LinkTreeLogo-01.png">
   </div>
   <div class="half">
     <h1 style="font-size:5em">FRTree</h1>
@@ -32,7 +32,7 @@
     <h2 class="mission-h2">Mission Statement</h2>
     <div class="mission-hr"></div>
     <p class="mission-p">
-      Our goal with FRTree is to make a standardized social media platform for First Robotics Competition teams. We hope our product will induce collaboration and communication between teams, which is one of the FIRST core values we find so important. The features we add to FRTree will prioritize ease of use, information-first layout, and customizability for team administrators.
+      Our goal with FRTree is to make a standardized social media platform for FIRST Robotics Competition teams. We hope our product will encourage collaboration and communication between teams, which is one of the FIRST core values we find so important. The features we add to FRTree will prioritize ease of use, information-first layout, and customizability for team administrators.
     </p>
   </div>
 </div>
@@ -46,7 +46,10 @@
       For anyone looking for information on a team, the feature-rich search will allow you to search for teams either by their code <i>e.g. 1676</i>, by their team name <i>e.g. Pascack Pi-oneers</i>, or by more general information <i>e.g. Pascack Hills, Pi, speaker award</i>.
     </p>
     <p class="mission-p">
-      Once you locate the team of interest, you can find plenty of valuable information, like the team name, location, a list of awards, and of course, a list of links that the team administrators have set. Teams can use these links to quickly reach out and contact one another, especially in the chaos of a competition. Like the well-known LinkTree, the links may include social media profiles, websites and blogs, or any other important information.
+      Once you locate the team of interest, you can find plenty of valuable information, such as the team name, location, the awards they have won, and of course, a list of links that the team administrators have set. Teams can use these links to quickly reach out and contact one another, especially during the chaos of a competition. Like the well-known LinkTree, the links may include social media profiles, websites and blogs, or any other important information.
+    </p>
+    <p class="mission-p">
+      Some teams haven't yet created a custom profile page, but our system still can present valuable information on these teams. Simply navigate to the team of choice, and information from The Blue Alliance API will be displayed. This includes team information, social media, and more. Administrators can use this data as a starting point to create their own custom page.
     </p>
     <p class="mission-p">
       Team administrators can access a secure portal to manage their teams page. They can change the color pallete of their page, modify their description, add or remove links, and much more.
@@ -55,6 +58,12 @@
 </div>
 
 <style>
+
+  .logo {
+    width: 100%;
+    max-width: 600px;
+    margin: 0px auto;
+  }
 
   .below-mission {
     width: 100%;
@@ -92,6 +101,7 @@
     width: 100%;
     height: 0px;
     border: 1.25px solid var(--color1);
+    margin-bottom: 10px;
   }
 
   .btn-cta {

@@ -4,7 +4,7 @@ import { createHashAndSalt, createSessionForUser, hashAndSaltPassword } from "$l
 import { getUserByEmail, mysqlConnection, type User } from "$lib/db/mysql";
 import { responseError, responseSuccess, HTTP } from "$lib/apis";
 
-export const POST: RequestHandler = async ({ request, params }) => {
+export const POST: RequestHandler = async ({ request, params, cookies }) => {
     const json = await request.json();
     const { email, password } = json;
 
@@ -48,9 +48,14 @@ export const POST: RequestHandler = async ({ request, params }) => {
     // Create a session
     try {
         const session = await createSessionForUser(account);
-        return responseSuccess(`success`, {
-            sessionId: session.sessionId
+        cookies.set("sessionId", session.sessionId, {
+            httpOnly: true,
+            maxAge: 60 * 60 * 24 * 7,
+            sameSite: "strict",
+            path: "/"
         });
+        
+        return responseSuccess(`success`);
     } catch (e) {
         return responseError(e, HTTP.INTERNAL_SERVER_ERROR);
     }

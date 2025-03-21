@@ -1,3 +1,5 @@
+import { createHash } from "crypto";
+
 export class API_Result {
     message: string;
     status: "success" | "error";
@@ -33,7 +35,7 @@ export function responseError(message: string, status: number): Response {
     }), { status: status });
 }
 
-export async function post(route: string, data: any): Promise<API_Result> {
+export async function post(route: string, data: any, formName?: string): Promise<API_Result> {
     const json = await fetch(route, {
         method: "POST",
         body: JSON.stringify(data),
@@ -41,7 +43,6 @@ export async function post(route: string, data: any): Promise<API_Result> {
             "Content-Type": "application/json"
         }
     }).then(res => res.json());
-    console.log("Got the result: " + json);
     return new API_Result(json);
 }
 

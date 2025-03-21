@@ -17,6 +17,7 @@
             <TeamGalleryEntry {...team} />
         {/each}
     </div>
+    <div>-- If you can't find the team you are looking for here, ask them to make an official profile! --</div>
 </div>
 
 <style>
@@ -40,6 +41,8 @@
 
     .main-container {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         margin: 0;
         padding: 20px;

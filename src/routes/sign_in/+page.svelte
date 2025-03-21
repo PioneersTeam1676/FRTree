@@ -10,9 +10,6 @@
             password
         });
         if (res.isSuccess()) {
-            const sessionId = res.data.sessionId;
-            const onedayfromnow = new Date(Date.now() + 1000 * 60 * 60 * 24);
-            document.cookie = `sessionId=${sessionId}; expires=${onedayfromnow.toUTCString()}; path=/;`;
             window.location.href = "/";
         } else {
             alert("Error: " + res.message);
