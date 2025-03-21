@@ -20,26 +20,65 @@
         });
     }
 
+    let show = $state(false);
+
+    function dropMenuDown() {
+        show = !show;
+    }
+
+
+onMount(() => {
+    window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+    }
+}
+})
+
+
+
 </script>
 
 <div class="header">
     <a href="/"><img class="logo-img" src={logo} alt="logo" /></a>
     <a href="/"><div class="header-title font">FRTree</div></a>
-    <div class="search-bar">
-        <input onkeydown={search} placeholder="Enter text" class="input-field" type="text" />
-        <label for="input-field" class="input-label">Search for a team</label>
-        <span class="input-highlight"></span>
+    <div class="custom-search-container">
+        <input 
+            type="search" 
+            placeholder="Search teams..." 
+            onkeydown={search}
+            class="custom-search-input"
+        />
+        <div class="search-underline"></div>
     </div>
     <div class="button-container">
-        <a href="/gallery"><button class="btn btn-1 font">Gallery</button></a>
+        <a href="/gallery"><button class="btn btn-1 font hide-on-small-screen">Gallery</button></a>
+        <button class="btn btn-1 font show-on-small-screen dropbtn" onclick={() => {dropMenuDown()}}>Menu</button>
+        <div class="dropdown">
+            <div id="myDropdown" class="dropdown-content show-on-small-screen {show ? "show" : ""}">
+                <a href="#" class="show-on-small-screen">Gallery</a>
+                <a href="#" class="show-on-small-screen">Sign Up</a>
+                <a href="#" class="show-on-small-screen">Sign In</a>
+            </div>
+        </div>    
+
+
         {#if loggedIn}
             <a href="/{loggedInAs}"><button class="btn btn-1 font">Preview</button></a>
             <a href="/{loggedInAs}/editor"><button class="btn btn-1 font">Editor</button></a>
             <button onclick={signout} class="btn btn-1-outline font">Log Out</button>
         {:else}
-            <a href="/sign_up"><button class="btn btn-1 font">Sign Up</button></a>
-            <a href="/sign_in"><button class="btn btn-1 font">Sign In</button></a>
+            <a href="/sign_up"><button class="btn btn-1 font hide-on-small-screen">Sign Up</button></a>
+            <a href="/sign_in"><button class="btn btn-1 font hide-on-small-screen">Sign In</button></a>
         {/if}
+
         <a href="https://team1676.com"
             ><img
                 class="header-pfp"
@@ -66,7 +105,30 @@
         align-items: center; /* Center vertically */
         width: 100vw;
         height: 10vh;
-        background-color: var(--color5);
+        background: linear-gradient(135deg, var(--color2) 0%, var(--color5) 100%) !important;
+        position: relative;
+        overflow: hidden;
+        position: sticky; 
+        top: 0; 
+        z-index: 1000;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 30%, rgba(0, 195, 255, 0.05) 40%, rgba(0, 195, 255, 0.05) 60%, transparent 70%);
+        background-size: 200% 200%;
+        animation: shimmer 10s infinite linear;
+        pointer-events: none;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: 100% 0; }
+        100% { background-position: -100% 0; }
     }
 
     .logo-img {
@@ -81,57 +143,58 @@
         margin-right: 1vw;
     }
 
-    /* Input container */
-    .search-bar {
+    /* Custom search styling with inline gradient underline */
+    .custom-search-container {
         position: relative;
-        margin: 20px;
+        margin: 0 1rem;
+        min-width: 200px;
     }
 
-    /* Input field */
-    .input-field {
-        display: block;
+    .custom-search-input {
         width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        border-bottom: 2px solid var(--color1);
-        outline: none;
-        background-color: transparent;
+        padding: 8px 12px;
+        background: rgba(10, 17, 40, 0.5);
         color: white;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        font-size: 1em;
     }
 
-    /* Input label */
-    .input-label {
+    .search-underline {
         position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 16px;
-        color: transparent;
-        pointer-events: none;
-        transition: all 0.3s ease;
-    }
-
-    /* Input highlight */
-    .input-highlight {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
         height: 2px;
         width: 0;
-        background-color: var(--color1);
+        background: linear-gradient(to right, transparent, var(--color1), transparent);
+        border-radius: 3px;
         transition: all 0.3s ease;
     }
 
-    /* Input field:focus styles */
-    .input-field:focus + .input-label {
-        top: -14px;
-        font-size: 14px;
-        color: var(--color1);
+    .custom-search-input:focus + .search-underline {
+        width: 100%;
+        height: 3px;
+        box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        animation: pulsateSearch 2s infinite alternate;
     }
 
-    .input-field:focus + .input-label + .input-highlight {
-        width: 110%;
-        /* background-color: var(--color2) */
+    .custom-search-container:hover .search-underline {
+        width: 80%;
+    }
+
+    .custom-search-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .custom-search-input:focus::placeholder {
+        color: rgba(0, 195, 255, 0.7);
+    }
+
+    @keyframes pulsateSearch {
+        0% { opacity: 0.7; box-shadow: 0 0 5px rgba(0, 195, 255, 0.3); }
+        100% { opacity: 1; box-shadow: 0 0 15px rgba(0, 195, 255, 0.5); }
     }
 
     :global(html),
@@ -157,5 +220,49 @@
         padding-left: 10px;
         font-size: 2em;
         color: var(--color1);
+    }
+
+    .show-on-small-screen {
+        display: none;
+    }
+
+    @media screen and (max-width: 720px) {
+        .hide-on-small-screen {
+            display: none;
+        }
+
+        .show-on-small-screen{
+            display: block;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #007acc;
+            min-width: 85px; /* You can set this to match the button width */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: -90px; /* Align with the left edge of the button */
+            top: 20px; /* Position it directly below the button */
+        }
+
+        /* Links inside the dropdown */
+            .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+        .show {display:block;}
     }
 </style>
