@@ -1,6 +1,6 @@
 import { mysqlConnection } from "$lib/db/mysql";
 import { getSessionBySessionId } from "$lib/db/sessions";
-import { error } from "@sveltejs/kit";
+import { error, redirect } from "@sveltejs/kit";
 import { responseError, responseSuccess, HTTP } from "$lib/apis";
 
 export async function load({ params, cookies }) {
@@ -15,13 +15,18 @@ export async function load({ params, cookies }) {
 
     const session = getSessionBySessionId(sessionId);
     if (!session) {
+        // throw redirect(302, "/sign_in");
         return error(HTTP.UNAUTHORIZED, `invalid session`);
     }
-
+    
     const teamAuthorized = session.team_num;
-    if (teamAuthorized !== team) {
+    const admin = session.user.flag_is_admin === 1;
+    if (!admin && teamAuthorized !== team) {
+        // throw redirect(302, "/sign_in");
         return error(HTTP.UNAUTHORIZED, `invalid session: only authorized as team ${teamAuthorized}`);
     }
+
+    const isAdmin = session.user.flag_is_admin === 1;
 
     let connection = await mysqlConnection();
 
@@ -39,7 +44,8 @@ export async function load({ params, cookies }) {
 
         let results = {
             links: links,
-            info: info
+            info: info,
+            isAdmin: isAdmin,
         };
         return {
             data: results

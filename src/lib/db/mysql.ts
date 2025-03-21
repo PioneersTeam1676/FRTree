@@ -1,13 +1,11 @@
 import mysql from "mysql2/promise";
-import CREDS from "$lib/db/db.json"
+import CREDS from "./db.json"
 
 let connection = null;
 
 export function mysqlConnection() {
 
     if (!connection) {
-
-
 
         // CREDS looks like 
         // export default {
@@ -25,13 +23,14 @@ export function mysqlConnection() {
 }
 
 export type User = {
-    uid: number,
-    created: Date,
-    joincodeid: number,
-    team_num: number,
-    email: string,
-    passhash: string,
-    salt: string
+    uid: number;
+    created: Date;
+    joincodeid: number;
+    team_num: number;
+    email: string;
+    passhash: string;
+    salt: string;
+    flag_is_admin: number;
 }
 
 export function createdThisYear(user: User): boolean {
@@ -68,6 +67,7 @@ export async function getUserByEmail(email: string): Promise<User | undefined> {
         email: userRaw.email,
         passhash: userRaw.passhash,
         salt: userRaw.salt,
+        flag_is_admin: userRaw.flag_is_admin,
     };
 
     return user;
@@ -102,6 +102,7 @@ export async function getUserByUID(uid: number): Promise<User | undefined> {
         email: userRaw.email,
         passhash: userRaw.passhash,
         salt: userRaw.salt,
+        flag_is_admin: userRaw.flag_is_admin,
     };
 
     return user;

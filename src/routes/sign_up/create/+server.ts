@@ -5,7 +5,7 @@ import { mysqlConnection } from "$lib/db/mysql";
 import { responseError, responseSuccess, HTTP } from "$lib/apis";
 
 export const POST: RequestHandler = async ({ request, params }) => {
-    const json = await request.json();
+    const json: { code: string, team_num: string, email: string, password: string } = await request.json();
     const { code, team_num, email, password } = json;
 
     // Make sure they sent the params
@@ -35,7 +35,7 @@ export const POST: RequestHandler = async ({ request, params }) => {
     const connection = await mysqlConnection();
     try {
         let joinCodes = await connection
-            .query(`SELECT * FROM frclink_joincodes WHERE code = ? AND team_num = ? LIMIT 1`, [code, team_num])
+            .query(`SELECT * FROM frclink_joincodes WHERE code = ? AND team_num = ? AND email = ? LIMIT 1`, [code, team_num, email])
             .then(([rows, fields]) => {
                 return rows;
             });

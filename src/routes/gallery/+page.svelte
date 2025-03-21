@@ -2,9 +2,11 @@
 
     import TeamGalleryEntry from "../../TeamGalleryEntry.svelte";
 
-    export let data;
+    const { data } = $props();
+    const gallery = data.data.info;
 
     console.log(data);
+    console.log(gallery);
 
     function goToTeam(team_num) {
         window.location.href = "../" + team_num;
@@ -13,10 +15,11 @@
 
 <div class="main-container">
     <div class="container">
-        {#each data.data.info as team}
+        {#each gallery as team}
             <TeamGalleryEntry {...team} />
         {/each}
     </div>
+    <div>-- If you can't find the team you are looking for here, ask them to make an official profile! --</div>
 </div>
 
 <style>
@@ -27,19 +30,13 @@
         --color4: #252526;
     }
 
-:root {
-    --color1: #007acc;
-    --color2: #3e3e42;
-    --color3: #2d2d30;
-    --color4: #252526;
-    --color5: #1e1e1e;
-}
-
     :global(html) {color: var(--color2)}
     :global(body) {margin:0px; background: var(--color3);}
 
     .main-container {
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         margin: 0;
         padding: 20px;
@@ -53,21 +50,6 @@
         width: 100%;
     }
 
-    .item img {
-        width: 150px; 
-        height: 150px;
-        margin-right: 10px; 
-        border-radius: 50%; 
-    }
-    
-    .item p {
-        margin: 0; /* Remove default margin */
-        font-size: 22px;
-        font-weight: bold;
-        color: white;
-        text-align: center; /* Center the text horizontally */
-        }
-       
     .main-container {
         display: flex;
         justify-content: center;

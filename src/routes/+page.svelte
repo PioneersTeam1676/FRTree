@@ -119,6 +119,12 @@
 </div>
 
 <style>
+
+  .logo {
+    width: 100%;
+    max-width: 600px;
+    margin: 0px auto;
+  }
   /* Main content styling */
   .main-content {
     min-height: 80vh;
@@ -359,6 +365,7 @@
     color: #a9c2ff;
     width: 48%;
     line-height: 1.6;
+    margin-bottom: 10px;
   }
 
   .btn-cta {

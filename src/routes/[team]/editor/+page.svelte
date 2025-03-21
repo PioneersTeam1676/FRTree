@@ -1,5 +1,7 @@
 <script>
     import { onMount } from "svelte";
+    import { post } from "$lib/apis";
+    import NotificationArea from "../../../NotificationArea.svelte";
 
     let { data } = $props();
     console.log(data);
@@ -61,10 +63,27 @@
         s();
     });
 
+    async function save() {
+        const res = await post("./editor", formData);
+        notifs.notify({ message: res.message, timeout: 5000 });
+        if (res.isError()) {
+            alert("Error: " + res.message);
+        }
+    }
+
+    async function clear() {
+
+    }
+
+    let notifs;
+
 </script>
 
 <div class="main" style:display={loaded ? "block" : "none"}>
     <h1>Edit page for team {formData.team_num}</h1>
+    {#if data.data.isAdmin}
+        <h2>YOU ARE ADMIN.</h2>
+    {/if}
 
     <form>
         <div class="input-group">
@@ -104,8 +123,10 @@
         </div>
 
     </form>
-    <button class="btn btn-danger">Save Changes</button>
-    <button class="btn btn-1">Clear Changes</button>
+    <button onclick={save} class="btn btn-danger">Save Changes</button>
+    <button onclick={clear} class="btn btn-1">Clear Changes</button>
+
+    <NotificationArea bind:this={notifs}/>
 </div>
 
 {#if !loaded}

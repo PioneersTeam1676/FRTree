@@ -49,6 +49,15 @@ export function deleteSessionOfUID(uid: number): void {
     });
 }
 
+export function deleteSession(session: Session): void {
+    sessions = sessions.filter(s => {
+        if (session.sessionId === s.sessionId) {
+            return false;
+        }
+        return true;
+    })
+}
+
 /**
  * Filters the sessions list of any sessions who are expired.
  * @see {@link sessionExpired}

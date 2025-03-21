@@ -15,6 +15,10 @@ Nate remember to test all the following things before committing:
 * Search page doesn't work if nothing is entered
 * Search page doesn't work with auto-filled teams
 
+## Nate to do
+* Finish editor (add saving, add link list)
+* Allow users to sign up to teams with no information in them
+
 ## Options for authentication
 
 ### Option 1
