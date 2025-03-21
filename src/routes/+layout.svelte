@@ -372,7 +372,6 @@
         margin: 0;
         width: 100%;
         height: 100%;
-        max-width: 100%;
         overflow-x: hidden;
         overscroll-behavior-y: none; /* Prevent bouncing on some browsers */
         /* Remove gray by forcing a blue gradient background */

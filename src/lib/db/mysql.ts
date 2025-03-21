@@ -1,5 +1,5 @@
 import mysql from "mysql2/promise";
-import CREDS from "$lib/db/db.json"
+import CREDS from "./db.json"
 
 let connection = null;
 
