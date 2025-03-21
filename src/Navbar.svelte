@@ -42,11 +42,15 @@ onMount(() => {
 
 <div class="header">
     <a href="/"><img class="logo-img" src={logo} alt="logo" /></a>
-    <a href="/"><div class="header-title font hide-on-small-screen">FRTree</div></a>
-    <div class="search-bar">
-        <input onkeydown={search} placeholder="Enter text" class="input-field" type="text" />
-        <label for="input-field" class="input-label">Search for a team</label>
-        <span class="input-highlight"></span>
+    <a href="/"><div class="header-title font">FRTree</div></a>
+    <div class="custom-search-container">
+        <input 
+            type="search" 
+            placeholder="Search teams..." 
+            onkeydown={search}
+            class="custom-search-input"
+        />
+        <div class="search-underline"></div>
     </div>
     <div class="button-container">
         <a href="/gallery"><button class="btn btn-1 font hide-on-small-screen">Gallery</button></a>
@@ -95,10 +99,30 @@ onMount(() => {
         align-items: center; /* Center vertically */
         width: 100vw;
         height: 10vh;
-        background-color: rgba(30, 30, 30, .9);
+        background: linear-gradient(135deg, var(--color2) 0%, var(--color5) 100%) !important;
+        position: relative;
+        overflow: hidden;
         position: sticky; 
         top: 0; 
         z-index: 1000;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 30%, rgba(0, 195, 255, 0.05) 40%, rgba(0, 195, 255, 0.05) 60%, transparent 70%);
+        background-size: 200% 200%;
+        animation: shimmer 10s infinite linear;
+        pointer-events: none;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: 100% 0; }
+        100% { background-position: -100% 0; }
     }
 
     .logo-img {
@@ -113,57 +137,58 @@ onMount(() => {
         margin-right: 1vw;
     }
 
-    /* Input container */
-    .search-bar {
+    /* Custom search styling with inline gradient underline */
+    .custom-search-container {
         position: relative;
-        margin: 20px;
+        margin: 0 1rem;
+        min-width: 200px;
     }
 
-    /* Input field */
-    .input-field {
-        display: block;
+    .custom-search-input {
         width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        border-bottom: 2px solid var(--color1);
-        outline: none;
-        background-color: transparent;
+        padding: 8px 12px;
+        background: rgba(10, 17, 40, 0.5);
         color: white;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        font-size: 1em;
     }
 
-    /* Input label */
-    .input-label {
+    .search-underline {
         position: absolute;
-        top: 0;
-        left: 0;
-        font-size: 16px;
-        color: transparent;
-        pointer-events: none;
-        transition: all 0.3s ease;
-    }
-
-    /* Input highlight */
-    .input-highlight {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
         height: 2px;
         width: 0;
-        background-color: var(--color1);
+        background: linear-gradient(to right, transparent, var(--color1), transparent);
+        border-radius: 3px;
         transition: all 0.3s ease;
     }
 
-    /* Input field:focus styles */
-    .input-field:focus + .input-label {
-        top: -14px;
-        font-size: 14px;
-        color: var(--color1);
+    .custom-search-input:focus + .search-underline {
+        width: 100%;
+        height: 3px;
+        box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+        animation: pulsateSearch 2s infinite alternate;
     }
 
-    .input-field:focus + .input-label + .input-highlight {
-        width: 110%;
-        /* background-color: var(--color2) */
+    .custom-search-container:hover .search-underline {
+        width: 80%;
+    }
+
+    .custom-search-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .custom-search-input:focus::placeholder {
+        color: rgba(0, 195, 255, 0.7);
+    }
+
+    @keyframes pulsateSearch {
+        0% { opacity: 0.7; box-shadow: 0 0 5px rgba(0, 195, 255, 0.3); }
+        100% { opacity: 1; box-shadow: 0 0 15px rgba(0, 195, 255, 0.5); }
     }
 
     :global(html),
