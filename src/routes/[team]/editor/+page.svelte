@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { post } from "$lib/apis";
+    import { isWhite } from "$lib/frontendutil";
     import NotificationArea from "../../../NotificationArea.svelte";
 
     let { data } = $props();
@@ -17,20 +18,6 @@
     });
 
     let loaded = $state(false);
-
-    function isWhite(str) {
-        // fiddle this value to set stricter rules for what is white.
-        var whiteLimit = 255/2, 
-            r,g,b;
-        
-        r = parseInt("0x"+str.substring(1,3));
-        g = parseInt("0x"+str.substring(3,5));
-        b = parseInt("0x"+str.substring(5,7));
-        if(r < whiteLimit || b < whiteLimit || g < whiteLimit) {
-            return false;
-        } 
-        return true;    
-    }
     
     onMount(async () => {
         // Ensure data is defined before accessing its properties

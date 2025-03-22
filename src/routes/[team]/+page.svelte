@@ -1,10 +1,14 @@
 <script>
     export let data;
     import { onMount } from 'svelte';
+    import { isWhite } from '$lib/frontendutil';
     import "@fortawesome/fontawesome-free/css/all.min.css";
 
     let loaded = false;
     let team = null;
+
+    const primIsWhite = isWhite(data.data.info[0].primary_col);
+    const secIsWhite = isWhite(data.data.info[0].secondary_col);
 
     onMount(async () => {
         // Ensure data is defined before accessing its properties
@@ -29,32 +33,24 @@
             <img class="pfp" src="{data.data.info[0].pfp}" alt="pfp not found" />
             <p class="description">{data.data.info[0].description}</p>
             {#if data.data.autofilled}
-            <i class="description">Team Information autofilled</i>
+                <i class="description">Team Information autofilled</i>
             {/if}
         </div>
 
         <div class="all-links">
-
             {#each data.data.links as link}
-                <div class="button-divs">
-                    <a href="{link.url}" target="_blank">
-                        <button class="tree-buttons" id="redirectWebsite">
-        
-                            <div class="container">
-                                <div class="grid1">
-                                    <img class="button-logo" src="{link.icon}" alt="button logo">
-                                </div>
-                                <div class="grid2">
-                                    <p class="tree-header">{link.title}</p>
-                                    <p class="bg-info">{link.description}</p>
-                                </div>
+                <!-- <a href="{link.url}" target="_blank"> -->
+                    <button class="tree-buttons" onclick={() => { window.open(link.url, "_blank").focus(); }}>
+                        <div class="tree-container">
+                            <img class="button-logo" src="{link.icon}" alt="button logo">
+                            <div class="link-content">
+                                <p style="color: {primIsWhite ? "black" : "white"}" class="tree-header">{link.title}</p>
+                                <p style="color: {primIsWhite ? "black" : "white"}" class="bg-info">{link.description}</p>
                             </div>
-                        </button>
-                    </a>
-                </div>
+                        </div>
+                    </button>
+                <!-- </a> -->
             {/each}
-            
-
         </div>
     </div>
 {/if}
@@ -79,7 +75,7 @@
         margin: 0px;
         width: 100%;
         min-height: 100%;
-        background: var(--secondary-col);
+        /* background: var(--secondary-col); */
     }
 
     .description {
@@ -89,23 +85,15 @@
     }
 
     .all-links {
-        align-self: center;
-        justify-self: center;
-    }
-
-    .button-divs {
-        width: 50vw;
-        height: 100%;
+        display: flex;
+        flex-direction: column;
         margin: auto;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        border-radius: 10px; 
+        gap: 20px;
+        width: 50%;
     }
 
-    @media (max-width: 800px) {
-    .button-divs {
-        width: 80vw;
-    }
+    .link-content {
+        margin: auto;
     }
 
     .bg-info {
@@ -117,7 +105,6 @@
     .pfp-div {
         margin-top: 10vh;
         text-align: center;
-        
     }
 
     .pfp {
@@ -128,14 +115,10 @@
     }
 
     .tree-buttons {
-        background: var(--primary-col);
-        border-radius: 10px;
         border: none;
         cursor: pointer;
         transition: transform 0.2s ease; /* Smooth transition for scaling */
-        box-shadow: 0 0 5px 0px black;
-        width: 100%;
-        padding: 10px;
+        background: none;
     }
 
     .tree-buttons:hover {
@@ -158,12 +141,16 @@
         width: 200px;
         height: 200px;
         border-radius: 5px;
-        object-fit: cover;
+        padding: 15px;
+        object-fit: contain;
     }
 
-    .container {
-        display: grid;
-        grid-template-columns: .2fr 1fr; 
+    .tree-container {
+        display: flex;
+        background: var(--primary-col);
+        border-radius: 0.76em;
+        /* border: 5px solid var(--secondary-col); */
+        box-shadow: 0 0 10px 2px var(--secondary-col);
     }
   
 </style>
