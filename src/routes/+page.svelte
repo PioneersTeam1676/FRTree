@@ -1,6 +1,7 @@
 <script>
   import Tree from "../Tree.svelte";
   import { onMount } from 'svelte';
+  import logoFull from "$lib/assets/LinkTreeLogo-01.png";
   
   let loaded = false;
   let logoContainer;
@@ -37,7 +38,7 @@
 <div class="main-content {loaded ? 'loaded' : ''}">
   <div class="half logo-container" bind:this={logoContainer}>
     <div class="logo-wrapper">
-      <img alt="Linktree Logo" src="src/lib/assets/LinkTreeLogo-01.png" class="logo">
+      <img alt="Linktree Logo" src={logoFull} class="logo">
       <div class="grid-overlay"></div>
     </div>
   </div>
@@ -81,11 +82,11 @@
     <h2 class="section-title">Features</h2>
     <div class="section-divider"></div>
 
-    <div class="features-grid">
-      <div class="features-image-container">
-        <img class="features-img" src="src/lib/assets/LinkTreeLogo-01.png" alt="features-img">
+    <div class="features-grid" style="grid-template-columns: 100%;">
+      <!--<div class="features-image-container">
+        <img class="features-img" src={logoFull} alt="features-img">
         <div class="image-overlay"></div>
-      </div>
+      </div>-->
       <div class="features-list-container">
         <ul class="features-list">
           <li class="feature-item">
