@@ -1,3 +1,5 @@
+import { onMount } from "svelte";
+
 /**
  * Returns whether or not the given hex color is very white or not.
  * @param str The HEX string
@@ -13,4 +15,14 @@ export function isWhite(str: string): boolean {
         return false;
     } 
     return true;    
+}
+
+export function docTitle(title: string, override: boolean = false): void {
+    onMount(() => {
+        if (override) {
+            document.title = title;
+        } else {
+            document.title = "FRTree - " + title;
+        }
+    });
 }

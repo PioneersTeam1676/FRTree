@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { toast } from "svelte-hot-french-toast";
+
     let team;
     let email;
     let expires = getISODay(getDaysFromNow(2));
@@ -13,8 +15,8 @@
         return date.toISOString().split("T")[0];
     }
 
-    function submit() {
-        fetch("/admin/createjoincode", {
+    async function submit() {
+        await fetch("/admin/createjoincode", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -27,11 +29,21 @@
                 team = "";
                 email = "";
                 expires = getISODay(getDaysFromNow(2));
-                alert("Join code created successfully");
             } else {
-                alert("Failed to create join code");
+                throw new Error("Failed to create join code");
             }
         });
+    }
+
+    function submitWrapper() {
+        toast.promise(
+            submit(),
+            {
+                loading: "Creating join code...",
+                success: "Join code created successfully",
+                error: "Failed to create join code"
+            }
+        )
     }
 </script>
 
@@ -49,7 +61,7 @@
             <label for="expires">Expires</label>
             <input bind:value={expires} type="date" id="expires" min={getISODay(new Date())}>
         </div>
-        <button id="submit" type="submit" onclick={submit}>Submit</button>
+        <button id="submit" type="submit" onclick={submitWrapper}>Submit</button>
     </div>
 
 <style>

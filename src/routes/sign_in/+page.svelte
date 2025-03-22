@@ -1,8 +1,12 @@
 <script>
     import { post } from "$lib/apis";
+    import { docTitle } from "$lib/frontendutil";
+    import { toast } from "svelte-hot-french-toast";
 
     let email = $state("");
     let password = $state("");
+
+    docTitle("Sign In");
 
     async function submit() {
         const res = await post("/sign_in/create", {
@@ -14,6 +18,17 @@
         } else {
             alert("Error: " + res.message);
         }
+    }
+
+    function submitWrapper() {
+        toast.promise(
+            submit(),
+            {
+                loading: "Signing in...",
+                success: "Signed in successfully",
+                error: "Failed to sign in"
+            }
+        )
     }
 </script>
 
@@ -29,7 +44,7 @@
             <label for="password">Password</label>
             <input bind:value={password} id="password" type="password" />
         </div>
-        <button id="submit" onclick={submit}>Submit</button>
+        <button id="submit" onclick={submitWrapper}>Submit</button>
     </div>
 </div>
 

@@ -48,7 +48,8 @@ export async function load({ params, cookies }) {
             isAdmin: isAdmin,
         };
         return {
-            data: results
+            data: results,
+            teamNum: team,
         };
     } catch (error) {
         console.error("we got an error!")

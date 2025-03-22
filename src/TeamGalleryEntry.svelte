@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
     import { onMount } from "svelte";
 
     let { team_num, pfp, description, secondary_col, team_full_name, primary_color } = $props();
-    
+    let btn: HTMLButtonElement;
+
     function goToTeam(team_num) {
         window.location.href = "../" + team_num;
     }
@@ -10,14 +11,15 @@
     onMount(async () => {
         // Ensure data is defined before accessing its properties
         if (team_num != undefined) {
-            document.getElementById("team"+team_num+"-image").style.setProperty('box-shadow', "0 0 10px 0px "+secondary_col);
+            btn.style.setProperty('box-shadow', "0 0 10px 0px "+secondary_col);
+            btn.style.setProperty('border-color', secondary_col);
         }
     });
 //  
 
 </script>
 
-<button type="button" id="team{team_num}-image" class="item" onclick={() => goToTeam(team_num)} aria-label="Go to team {team_num}">
+<button bind:this={btn} type="button" id="team{team_num}-image" class="item" onclick={() => goToTeam(team_num)} aria-label="Go to team {team_num}">
     <img class="pfp" src={pfp} alt="Team Logo" />
     <div class="text-grid">
         <p class="team-number">Team {team_num}</p>
@@ -38,6 +40,7 @@
         padding: 10px;
         cursor: pointer;
         transition: transform 0.2s ease; /* Smooth transition for scaling */
+        border: 2px solid;
     }
     .item:hover {
         transform: scale(1.01); /* Enlarge the button on hover */

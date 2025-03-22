@@ -1,12 +1,13 @@
-<script>
-    let { children, data } = $props();
-    let loggedInAs = data.data.loggedInAs;
-    let loggedIn = data.data.loggedIn;
+<script lang="ts">
+    import { Toaster } from "svelte-hot-french-toast";
     import logo from "$lib/assets/LinkTreeLogo-02.png";
     import "./global.css";
     import Navbar from "../Navbar.svelte";
-
     import { onMount } from "svelte";
+    
+    let { children, data } = $props();
+    let loggedInAs = data.data.loggedInAs;
+    let loggedIn = data.data.loggedIn;
     
     // Background particles
     let particles = [];
@@ -30,46 +31,45 @@
     let lowPerformanceMode = false;
 
     onMount(() => {
-        document.title = "FRTree";
         
-        // Initialize background particles if supported
-        if (typeof window !== 'undefined') {
-            canvas = document.getElementById('background-canvas');
-            if (canvas) {
-                ctx = canvas.getContext('2d');
+        // // Initialize background particles if supported
+        // if (typeof window !== 'undefined') {
+        //     canvas = document.getElementById('background-canvas');
+        //     if (canvas) {
+        //         ctx = canvas.getContext('2d');
                 
-                initCanvas();
-                createParticles();
+        //         initCanvas();
+        //         createParticles();
                 
-                if (!lowPerformanceMode) {
-                    animateParticles();
-                } else {
-                    // For low performance devices, just draw static particles once
-                    drawStaticParticles();
-                }
+        //         if (!lowPerformanceMode) {
+        //             animateParticles();
+        //         } else {
+        //             // For low performance devices, just draw static particles once
+        //             drawStaticParticles();
+        //         }
                 
-                // Passive event listeners improve scroll performance
-                window.addEventListener('mousemove', handleMouseMove, { passive: true });
-                window.addEventListener('scroll', handleScroll, { passive: true });
-                canvas.addEventListener('mouseenter', () => mouseActive = true);
-                canvas.addEventListener('mouseleave', () => mouseActive = false);
+        //         // Passive event listeners improve scroll performance
+        //         window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        //         window.addEventListener('scroll', handleScroll, { passive: true });
+        //         canvas.addEventListener('mouseenter', () => mouseActive = true);
+        //         canvas.addEventListener('mouseleave', () => mouseActive = false);
                 
-                // Clean up all event listeners and timers on unmount
-                return () => {
-                    window.removeEventListener('mousemove', handleMouseMove);
-                    window.removeEventListener('scroll', handleScroll);
-                    if (animationFrameId) {
-                        cancelAnimationFrame(animationFrameId);
-                    }
-                    if (fpsCheckInterval) {
-                        clearInterval(fpsCheckInterval);
-                    }
-                    if (scrollTimeout) {
-                        clearTimeout(scrollTimeout);
-                    }
-                };
-            }
-        }
+        //         // Clean up all event listeners and timers on unmount
+        //         return () => {
+        //             window.removeEventListener('mousemove', handleMouseMove);
+        //             window.removeEventListener('scroll', handleScroll);
+        //             if (animationFrameId) {
+        //                 cancelAnimationFrame(animationFrameId);
+        //             }
+        //             if (fpsCheckInterval) {
+        //                 clearInterval(fpsCheckInterval);
+        //             }
+        //             if (scrollTimeout) {
+        //                 clearTimeout(scrollTimeout);
+        //             }
+        //         };
+        //     }
+        // }
 
         // Search bar enhancement
         const searchInputs = document.querySelectorAll('input[type="search"]');
@@ -322,7 +322,7 @@
     }
 </script>
 
-<canvas id="background-canvas" class="background-effect"></canvas>
+<!-- <canvas id="background-canvas" class="background-effect"></canvas> -->
 
 <div class="app-container">
     <Navbar loggedIn={loggedIn} loggedInAs={loggedInAs} />
@@ -331,6 +331,8 @@
         {@render children()}
     </div>
 </div>
+
+<Toaster />
 
 <style>
     .app-container {

@@ -1,6 +1,8 @@
 <script>
 
     import { post } from "$lib/apis";
+    import { docTitle } from "$lib/frontendutil";
+    import { toast } from "svelte-hot-french-toast";
 
     let code = $state("");
     let team_num = $state(0);
@@ -9,9 +11,10 @@
 
     let info;
 
-    function submit() {
-        console.log("SIGNED UP!");
-        post("/sign_up/create", {
+    docTitle("Sign Up")
+
+    async function submit() {
+        await post("/sign_up/create", {
             code,
             team_num,
             email,
@@ -23,6 +26,17 @@
                 alert("Error: " + result.message);
             }
         });
+    }
+
+    function submitWrapper() {
+        toast.promise(
+            submit(),
+            {
+                loading: "Signing up...",
+                success: "Signed up successfully",
+                error: "Failed to sign up"
+            }
+        )
     }
 </script>
 
@@ -53,6 +67,6 @@
     </div>
 
     <div class="input-group">
-        <input type="button" value="submit" onclick={submit}>
+        <input type="button" value="submit" onclick={submitWrapper}>
     </div>    
 </form>

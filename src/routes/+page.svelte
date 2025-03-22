@@ -1,4 +1,5 @@
 <script>
+    import { docTitle } from "$lib/frontendutil";
   import Tree from "../Tree.svelte";
   import { onMount } from 'svelte';
   
@@ -6,6 +7,8 @@
   let logoContainer;
   let glitchInterval;
   
+  docTitle("Home");
+
   onMount(() => {
     setTimeout(() => {
       loaded = true;

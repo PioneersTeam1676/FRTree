@@ -26,9 +26,10 @@ export const POST: RequestHandler = async ({ request, params }) => {
         return responseError("no expires provided", HTTP.BAD_REQUEST);
     }
 
+    const expiresfmt = new Date(expires).toISOString().slice(0, 19).replace('T', ' ');
     const connection = await mysqlConnection();
-    connection.query("INSERT INTO frclink_joincodes (code, created, expires, team_num, email) VALUES (?, CURRENT_TIMESTAMP(), datetime(?, \"unixepoch\"), ?, ?)", [
-        makeCode(), new Date(expires).getTime(), team, email
+    connection.query("INSERT INTO frclink_joincodes (code, created, expires, team_num, email) VALUES (?, CURRENT_TIMESTAMP(), ?, ?, ?)", [
+        makeCode(), expiresfmt, team, email
     ]);
     
     return responseSuccess("created join code", HTTP.CREATED);

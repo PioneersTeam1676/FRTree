@@ -1,11 +1,13 @@
 <script>
     export let data;
     import { onMount } from 'svelte';
-    import { isWhite } from '$lib/frontendutil';
+    import { docTitle, isWhite } from '$lib/frontendutil';
     import "@fortawesome/fontawesome-free/css/all.min.css";
 
     let loaded = false;
     let team = null;
+
+    docTitle("Team " + data.data.info[0].team_num);
 
     const primIsWhite = isWhite(data.data.info[0].primary_col);
     const secIsWhite = isWhite(data.data.info[0].secondary_col);
@@ -56,7 +58,7 @@
 {/if}
 
 <style>
-    :root {
+    /* :root {
         --color1: #007acc;
         --color2: #3e3e42;
         --color3: #2d2d30;
@@ -64,7 +66,7 @@
         --color5: #1e1e1e;
         --primary-col: #3E7B27;
         --secondary-col: #85A947;
-    }
+    } */
     
     :global(html) {color: var(--color2);}
     :global(body) {margin:0px; background: var(--color3);}
@@ -81,7 +83,12 @@
     .description {
         font-family: 'Helvetica', 'Arial', sans-serif;
         color: white;
-
+        width: 40%;
+        margin: auto;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .all-links {

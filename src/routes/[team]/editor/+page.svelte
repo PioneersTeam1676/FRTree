@@ -1,12 +1,11 @@
 <script>
     import { onMount } from "svelte";
     import { post } from "$lib/apis";
-    import { isWhite } from "$lib/frontendutil";
-    import NotificationArea from "../../../NotificationArea.svelte";
-
-    let { data } = $props();
-    console.log(data);
-
+    import { docTitle, isWhite } from "$lib/frontendutil";
+    import { toast } from "svelte-hot-french-toast";
+    
+    let { data, teamNum } = $props();
+    
     let formData = $state({
         team_full_name: null,
         pfp: null,
@@ -16,53 +15,62 @@
         location: null,
         team_num: null
     });
-
+    
+    
     let loaded = $state(false);
     
-    onMount(async () => {
+    async function load() {
         // Ensure data is defined before accessing its properties
         if (data?.data?.info?.[0]) {
             formData = {...data.data.info[0]};
             loaded = true;
         }
-
+    
+        docTitle(`Editor (Team ${formData.team_num})`);
+    
         let colorPreviewPrimary = document.getElementById("primary_preview");
         let colorPreviewSecondary = document.getElementById("secondary_preview");
         let colorInputPrimary = document.getElementById("primary_color");
         let colorInputSecondary = document.getElementById("secondary_color");
-
+    
         const p = () => {
             colorPreviewPrimary.innerText = formData.primary_col;
             colorPreviewPrimary.style.backgroundColor = formData.primary_col;
             colorPreviewPrimary.style.color = isWhite(formData.primary_col) ? "black" : "white";
         }
-
+    
         const s = () => {
             colorPreviewSecondary.innerText = formData.secondary_col;
             colorPreviewSecondary.style.backgroundColor = formData.secondary_col;
             colorPreviewSecondary.style.color = isWhite(formData.secondary_col) ? "black" : "white";
         }
-
+    
         colorInputPrimary.addEventListener("input", p);
         colorInputSecondary.addEventListener("input", s);
-
+    
         p();
         s();
+    }
+
+    onMount(async () => {
+        toast.promise(load(), {
+            loading: "Loading data...",
+            success: "Data loaded successfully",
+            error: "Failed to load data"
+        });
     });
 
     async function save() {
-        const res = await post("./editor", formData);
-        notifs.notify({ message: res.message, timeout: 5000 });
-        if (res.isError()) {
-            alert("Error: " + res.message);
-        }
+        toast.promise(post("./editor", formData), {
+            loading: "Saving changes...",
+            success: "Changes saved successfully",
+            error: "Failed to save changes"
+        });
     }
 
     async function clear() {
 
     }
-
-    let notifs;
 
 </script>
 
@@ -112,13 +120,7 @@
     </form>
     <button onclick={save} class="btn btn-danger">Save Changes</button>
     <button onclick={clear} class="btn btn-1">Clear Changes</button>
-
-    <NotificationArea bind:this={notifs}/>
 </div>
-
-{#if !loaded}
-    <h1>Loading</h1>
-{/if}
 
 <style>
 

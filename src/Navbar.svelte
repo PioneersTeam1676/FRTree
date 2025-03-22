@@ -105,7 +105,8 @@ onMount(() => {
         align-items: center; /* Center vertically */
         width: 100vw;
         height: 10vh;
-        background: linear-gradient(135deg, var(--color2) 0%, var(--color5) 100%) !important;
+        /* background: linear-gradient(135deg, var(--color2) 0%, var(--color5) 100%) !important; */
+        background: var(--color4);
         position: relative;
         overflow: hidden;
         position: sticky; 
@@ -113,7 +114,7 @@ onMount(() => {
         z-index: 1000;
     }
 
-    .header::before {
+    /* .header::before {
         content: '';
         position: absolute;
         top: 0;
@@ -124,12 +125,12 @@ onMount(() => {
         background-size: 200% 200%;
         animation: shimmer 10s infinite linear;
         pointer-events: none;
-    }
+    } */
 
-    @keyframes shimmer {
+    /* @keyframes shimmer {
         0% { background-position: 100% 0; }
         100% { background-position: -100% 0; }
-    }
+    } */
 
     .logo-img {
         margin-left: 0.7vw;

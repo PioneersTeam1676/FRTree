@@ -15,7 +15,7 @@
     color: #e6f1ff;
     font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif; 
 }
-
+/* 
 body {
     background: linear-gradient(135deg, var(--color3) 0%, var(--color5) 100%);
     background-attachment: fixed;
@@ -24,7 +24,7 @@ body {
 :global(html) {
     background: linear-gradient(135deg, var(--color3) 0%, var(--color5) 100%) !important;
     background-attachment: fixed !important;
-}
+} */
 
 .main, main {
     padding: 20px;

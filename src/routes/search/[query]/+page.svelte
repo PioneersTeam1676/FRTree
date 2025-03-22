@@ -6,6 +6,9 @@
 
     import { onMount } from "svelte";
     import TeamGalleryEntry from "../../../TeamGalleryEntry.svelte";
+    import { docTitle } from "$lib/frontendutil";
+
+    docTitle("Search - " + data.query);
 
     /**
      * Returns a normalized value representing the similarity between two strings.
@@ -119,13 +122,13 @@
 
 
 <style>
-    :root {
+    /* :root {
     --color1: #007acc;
     --color2: #3e3e42;
     --color3: #2d2d30;
     --color4: #252526;
     --color5: #1e1e1e;
-}
+} */
 
     :global(html) {color: var(--color2)}
     :global(body) {margin:0px; background: var(--color3);}

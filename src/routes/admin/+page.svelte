@@ -1,5 +1,7 @@
 <script lang="ts">
+    import { docTitle } from "$lib/frontendutil";
     import CreateJoinCode from "./CreateJoinCode.svelte";
+    docTitle("Admin Panel")
 </script>
 
 <div class="main">

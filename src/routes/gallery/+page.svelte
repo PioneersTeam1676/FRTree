@@ -1,9 +1,13 @@
 <script>
+    import { docTitle } from "$lib/frontendutil";
+
 
     import TeamGalleryEntry from "../../TeamGalleryEntry.svelte";
 
     const { data } = $props();
     const gallery = data.data.info;
+
+    docTitle("Gallery");
 
     console.log(data);
     console.log(gallery);
@@ -23,12 +27,12 @@
 </div>
 
 <style>
-    :root {
+    /* :root {
         --color1: #007acc;
         --color2: #3e3e42;
         --color3: #2d2d30;
         --color4: #252526;
-    }
+    } */
 
     :global(html) {color: var(--color2)}
     :global(body) {margin:0px; background: var(--color3);}
