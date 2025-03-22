@@ -1,12 +1,23 @@
 <script>
-    let { team_num, pfp, description } = $props();
+    let { team_num, pfp, description, secondary_col } = $props();
     
     function goToTeam(team_num) {
         window.location.href = "../" + team_num;
     }
+
+    import { onMount } from 'svelte';
+
+    onMount(async () => {
+        // Ensure data is defined before accessing its properties
+        if (team_num != undefined) {
+            document.getElementById("team"+team_num+"-image").style.setProperty('box-shadow', "0 0 10px 0px "+secondary_col);
+        }
+    });
+//  
+
 </script>
 
-    <button type="button" class="item" onclick={() => goToTeam(team_num)} aria-label="Go to team {team_num}">
+    <button id="team{team_num}-image" type="button" class="item"  onclick={() => goToTeam(team_num)} aria-label="Go to team {team_num}">
         <img src={pfp} alt="Team Logo" />
         <div class="text-grid">
             <p class="team-number">Team {team_num}</p>
