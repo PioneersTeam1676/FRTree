@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
 
-    let { team_num, pfp, description, secondary_col, team_full_name, primary_color, secondary_color } = $props();
+    let { team_num, pfp, description, secondary_col, team_full_name, primary_color } = $props();
     
     function goToTeam(team_num) {
         window.location.href = "../" + team_num;
@@ -17,7 +17,7 @@
 
 </script>
 
-<button type="button" class="item" onclick={() => goToTeam(team_num)} aria-label="Go to team {team_num}">
+<button type="button" id="team{team_num}-image" class="item" onclick={() => goToTeam(team_num)} aria-label="Go to team {team_num}">
     <img class="pfp" src={pfp} alt="Team Logo" />
     <div class="text-grid">
         <p class="team-number">Team {team_num}</p>
