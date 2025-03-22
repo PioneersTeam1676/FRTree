@@ -6,7 +6,6 @@
 
     let loaded = false;
     let team = null;
-
     const primIsWhite = isWhite(data.data.info[0].primary_col);
     const secIsWhite = isWhite(data.data.info[0].secondary_col);
 

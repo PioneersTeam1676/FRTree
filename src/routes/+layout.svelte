@@ -5,8 +5,15 @@
     import logo from "$lib/assets/LinkTreeLogo-02.png";
     import "./global.css";
     import Navbar from "../Navbar.svelte";
-
+    import { page } from '$app/stores';
+    import { goto } from '$app/navigation';
     import { onMount } from "svelte";
+
+    $effect(() => {
+        if ($page.url.pathname === '/' && $page.route.id !== '/') {
+            goto('/'); // Force homepage if route is misidentified
+        }
+    });
     
     // Background particles
     let particles = [];
