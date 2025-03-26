@@ -1,6 +1,5 @@
 <script>
-    import { docTitle } from "$lib/frontendutil";
-  import Tree from "../Tree.svelte";
+  import Tree from "../../Tree.svelte";
   import { onMount } from 'svelte';
   import logoFull from "$lib/assets/LinkTreeLogo-01.png";
   
@@ -8,8 +7,6 @@
   let logoContainer;
   let glitchInterval;
   
-  docTitle("Home");
-
   onMount(() => {
     setTimeout(() => {
       loaded = true;
