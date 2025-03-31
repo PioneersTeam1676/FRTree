@@ -78,4 +78,28 @@
         display: flex;
         width: 100%;
     }
+
+
+    /* Responsive design */
+    @media (max-width: 1200px) {
+        .item {
+            width: calc(33.33% - 50px); /* 3 items per row */
+        }
+    }
+    @media (max-width: 950px) {
+        .item {
+            width: calc(60% - 50px); /* 2 items per row */
+        }
+    }
+    @media (max-width: 600px) {
+        .item {
+            width: calc(100% - 50px); /* 1 item per row */
+        }
+        .item img {
+            width: 100px; /* Adjust image size for smaller screens */
+            height: 100px; /* Adjust image size for smaller screens */
+        }
+    }
+
+
 </style>
