@@ -49,7 +49,7 @@ onMount(() => {
 <div class="header">
     <a href="/"><img class="logo-img" src={logo} alt="logo" /></a>
     <a href="/"><div class="header-title font">FRTree</div></a>
-    <!-- <div class="custom-search-container">
+    <div class="custom-search-container hide-on-small-screen">
         <input 
             type="search" 
             placeholder="Search teams..." 
@@ -57,7 +57,7 @@ onMount(() => {
             class="custom-search-input"
         />
         <div class="search-underline"></div>
-    </div> -->
+    </div>
     <div class="button-container">
         <a href="/gallery"><button class="btn btn-1 font hide-on-small-screen">Gallery</button></a>
         <button class="btn btn-1 font show-on-small-screen dropbtn" onclick={() => {dropMenuDown()}}>Menu</button>

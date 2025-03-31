@@ -41,6 +41,7 @@
         cursor: pointer;
         transition: transform 0.2s ease; /* Smooth transition for scaling */
         border: 2px solid;
+        height: 200px; /* Fixed height for all items */
     }
     .item:hover {
         transform: scale(1.01); /* Enlarge the button on hover */
