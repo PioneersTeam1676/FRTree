@@ -9,6 +9,14 @@
 
     docTitle("Team " + data.data.info[0].team_num);
 
+    //if the primary or secondary color is blank then set to white and black
+    if (data.data.info[0].primary_col == "" || data.data.info[0].primary_col == null || data.data.info[0].primary_col == undefined) {
+        data.data.info[0].primary_col = "#FFFFFF";
+    }
+    if (data.data.info[0].secondary_col == "" || data.data.info[0].secondary_col == null || data.data.info[0].secondary_col == undefined) {
+        data.data.info[0].secondary_col = "#000000";
+    }
+
     const primIsWhite = isWhite(data.data.info[0].primary_col);
     const secIsWhite = isWhite(data.data.info[0].secondary_col);
 
