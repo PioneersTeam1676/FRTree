@@ -6,7 +6,8 @@ import { responseError, responseSuccess, HTTP } from "$lib/apis";
 export async function load({ params, cookies }) {
 
     const sessionId = cookies.get("sessionId");
-    const teamNotNumber = params.team;
+    const teamNotNumber = params.id;
+    // console.log(params);
     const team = Number(teamNotNumber);
 
     if (!Number.isInteger(team)) {
@@ -34,12 +35,12 @@ export async function load({ params, cookies }) {
 
     try {
         let links = await connection
-            .query(`SELECT * FROM frclink_links WHERE team_num = ?`, params.team)
+            .query(`SELECT * FROM frclink_links WHERE team_num = ?`, params.id)
             .then(([rows, fields]) => {
                 return rows;
             });
         let info = await connection
-            .query(`SELECT * FROM frclink_info WHERE team_num = ? LIMIT 1`, params.team)
+            .query(`SELECT * FROM frclink_info WHERE team_num = ? LIMIT 1`, params.id)
             .then(([rows, fields]) => {
                 return rows;
             });
